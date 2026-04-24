@@ -1,800 +1,736 @@
+"use client";
+
+import type { ReactNode } from "react";
 import { Montserrat } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { SiteNavbar } from "@/components/site-navbar";
+
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const approachTabs = [
-  "Our Approach",
-  "Who This Is For",
-  "Why Work With Us",
+const stats = [
+  { value: "40+", label: "Projects Done" },
+  { value: "35+", label: "Happy Client" },
+  { value: "95%", label: "Client Satisfaction" },
 ];
 
-const heroNavItems = ["Home", "About", "Service", "Portfolio", "Blog"];
-
-const approachPoints = [
+const services = [
   {
-    title: "Discovery & Strategy",
+    title: "Business Strategy",
     description:
-      "We start by understanding your business, audience, and goals. What do you want your website to achieve? Who are your ideal visitors? This step ensures your website is built with purpose, not guesswork.",
+      "At De-Verge we deliver actionable strategy that capitalizes on opportunity and navigate challenge for business growth.",
+    icon: <StrategyIcon />,
   },
   {
-    title: "Design With Intent",
+    title: "Digital Marketing",
     description:
-      "Every page, every section, and every visual element is designed to guide your audience, communicate your value clearly, and encourage action. Design isn't just aesthetic, it's strategic.",
+      "Our team of expert are equipped to propel your brand to new heights. Partner with us let's guide you through every step.",
+    icon: <MarketingIcon />,
   },
   {
-    title: "Build & Optimize",
+    title: "Brand Identity",
     description:
-      "We develop responsive, fast, and reliable websites that perform across devices. Functionality, speed, and conversion-focused layouts are built in from day one.",
+      "Our services goes beyond logo and color scheme, we breathe life into your brand story.",
+    icon: <BrandIcon />,
   },
   {
-    title: "Launch & Refine",
+    title: "Cross-Platform",
     description:
-      "Once live, we track user behavior, refine the experience, and optimize performance to ensure your website meets its growth goals.",
-  },
-];
-
-const showcaseCards = [
-  {
-    title: "Aero Systems",
-    type: "Corporate Website",
-    accent: "from-sky-100 via-white to-cyan-100",
+      "Our designs are built to thrive and adapt across multiple devices providing optimized accessibility and reach.",
+    icon: <PlatformIcon />,
   },
   {
-    title: "Vowen",
-    type: "Lifestyle Magazine",
-    accent: "from-stone-100 via-rose-50 to-zinc-100",
+    title: "Web Development",
+    description:
+      "At De-Verge Hub we deliver actionable strategy that capitalize on opportunity and negative challenges for business growth.",
+    icon: <CodeIcon />,
   },
   {
-    title: "TWCG",
-    type: "Construction Brand",
-    accent: "from-lime-100 via-emerald-50 to-zinc-200",
-  },
-  {
-    title: "Transit Flow",
-    type: "Logistics Platform",
-    accent: "from-orange-50 via-white to-slate-100",
-  },
-  {
-    title: "Nest Haven",
-    type: "Real Estate UI",
-    accent: "from-slate-100 via-sky-50 to-amber-50",
-  },
-  {
-    title: "Bodie",
-    type: "Luxury Product Page",
-    accent: "from-amber-900 via-stone-800 to-zinc-900",
+    title: "Local Marketing",
+    description:
+      "We harness the power of local marketing building deep connection with targeted audience.",
+    icon: <SliderIcon />,
   },
 ];
 
-const pricingTiers = [
+const projects = [
   {
-    code: "LP",
-    name: "The Launchpad",
-    subtitle:
-      "For solopreneurs and small businesses ready to show up online professionally.",
-    price: "NGN 150,000",
-    priceNote: "(One-Time)",
-    features: [
-      "High-converting landing page",
-      "Mobile-first, responsive design",
-      "Contact form + WhatsApp integration",
-      "Basic on-page SEO setup",
-      "Speed-optimized codebase",
-      "2 revision rounds included",
-      "Delivered in 7-10 business days",
-    ],
-    bonusTitle: "Bonus Stack",
-    bonus: [
-      "Free domain and hosting consultation",
-      "30-min website strategy session",
-      "Basic Google Analytics setup",
-    ],
-    cta: "Choose Tier 1",
-    featured: false,
+    title: "Custom CRM Development",
+    category: "Web Development",
+    tags: ["MySQL", "Laravel", "Node.js"],
+    image: "/images/Home-img 1.png",
   },
   {
-    code: "GE",
-    name: "The Growth Engine",
-    subtitle:
-      "For growing businesses needing a stronger digital presence across web apps and e-commerce.",
-    price: "NGN 500,000",
-    priceNote: "(One-Time)",
-    features: [
-      "Full custom website or web application",
-      "E-commerce or payment integration",
-      "CMS integration to manage content easily",
-      "Advanced SEO and sitemap setup",
-      "Admin dashboard for business owners",
-      "3 revision rounds included",
-      "30-days post-launch support",
-    ],
-    bonusTitle: "Bonus Stack",
-    bonus: [
-      "Maintenance checklist",
-      "Search Console verification",
-      "Launch consultation for your team",
-    ],
-    cta: "Choose Tier 2",
-    featured: true,
+    title: "Mobile App for FitTrack",
+    category: "Mobile Development",
+    tags: ["React Native", "Firebase", "Redux"],
+    image: "/images/Home-img 2.png",
   },
   {
-    code: "SS",
-    name: "The Scale Suite",
-    subtitle:
-      "For startups and funded teams that need full-stack digital products built to dominate.",
-    price: "NGN 2,000,000",
-    priceNote: "(Per Project)",
-    features: [
-      "Custom mobile app plus web platform",
-      "Scalable backend architecture and API",
-      "Multi-role authentication and dashboards",
-      "Third-party integrations",
-      "Full UI and UX design with prototype",
-      "Unlimited revisions during build",
-      "Dedicated project manager",
-    ],
-    bonusTitle: "Bonus Stack",
-    bonus: [
-      "App store submission support",
-      "Performance monitoring setup",
-      "Analytics and search configuration",
-    ],
-    cta: "Choose Tier 3",
-    featured: false,
+    title: "Brand Identity for Google",
+    category: "Branding",
+    tags: ["Adobe Creative Suite", "Figma", "Photoshop"],
+    image: "/images/Home-img 3.png",
   },
-];
-
-const trustedStats = [
-  { value: "50+", label: "Websites built" },
-  { value: "100+", label: "Campaign launched" },
-  { value: "5+", label: "Years in business" },
-  { value: "3+", label: "Awards" },
 ];
 
 const testimonials = [
   {
-    name: "Engr. Aboje Franci",
-    location: "Lagos, Nigeria",
+    name: "Adaeje Francis",
+    location: "Abuja, Nigeria",
     quote:
-      "De-Verge Hub brought our vision to life with a stunning website that exceeded our expectations.",
-    date: "30 October 2023",
+      "De-Verge Hub brought our vision to life with a strategy-first process that exceeded our expectations.",
+    date: "30 October 2026",
+    image: "/images/marketplace-testimonial 1.jpg",
   },
   {
     name: "Fred Gerard",
     location: "Abuja, Nigeria",
     quote:
-      "De-Verge Hub's data analysis insights have been instrumental in informing our business decisions and driving growth.",
-    date: "14 January 2024",
+      "De-Verge Hub's data analytics insights have been instrumental in informing our business decisions and driving growth.",
+    date: "30 October 2026",
+    image: "/images/marketplace-testimonial 2.jpg",
   },
   {
-    name: "Victor",
-    location: "Lagos, Nigeria",
+    name: "Fred Gerard",
+    location: "Abuja, Nigeria",
     quote:
-      "De-Verge Hub's web services have been instrumental in helping us achieve our business recommendations.",
-    date: "3 March 2025",
+      "De-Verge Hub's data analytics insights have been instrumental in informing our business decisions and driving growth.",
+    date: "30 October 2026",
+    image: "/images/marketplace-testimonial 2.jpg",
+  },
+  {
+    name: "Vadtrans",
+    location: "Abuja, Nigeria",
+    quote:
+      "De Verge Hub's web application played a key role in helping Vadtrans achieve its goals, delivering smart and efficient solutions.",
+    date: "12 September 2023",
+    image: "/images/marketplace-testimonial 3.jpg",
   },
 ];
 
-const offerItems = [
-  "Full Performance & SEO Infrastructure Audit",
-  "Custom UX Strategy & Conversion Roadmap",
-  "60-Minute Architecture Sync with Lead Engineer",
-];
+const footerLinks = {
+  company: [
+    { label: "About Us", href: "/about" },
+    { label: "Service", href: "/service" },
+    { label: "Blog", href: "/blog" },
+    { label: "Career", href: "#" },
+    { label: "CRS", href: "#" },
+  ],
+  support: [
+    { label: "Contact", href: "/contact" },
+    { label: "FAQs", href: "#" },
+  ],
+};
 
-const consultationFields = [
-  { label: "Full Name", placeholder: "Full Name", type: "text" },
-  { label: "Phone Number", placeholder: "+234...", type: "tel" },
-  { label: "Email Address", placeholder: "Email Address", type: "email" },
-  { label: "Company", placeholder: "Enterprise Inc.", type: "text" },
-];
+const footerLinkMap: Record<string, string> = {
+  "About Us": "/about",
+  Service: "/service",
+  Blog: "/blog",
+  Contact: "/contact",
+};
 
-const faqItems = [
-  {
-    question: "How long does it take to launch a website?",
-    answer:
-      "Every project is unique, but most websites are live within 4-8 weeks. We prioritize speed without compromising strategy, design, or performance.",
-  },
-  {
-    question: "Will my website generate leads?",
-    answer:
-      "That is the goal. We design pages around clear offers, stronger messaging, and conversion paths that help the right visitors take action.",
-  },
-  {
-    question: "Can you redesign an existing website?",
-    answer:
-      "Yes. We can improve the structure, visual system, and performance of an existing site while preserving what still serves the brand well.",
-  },
-  {
-    question: "Do you provide ongoing support after launch?",
-    answer:
-      "Yes. We offer post-launch support, optimization guidance, and maintenance options depending on the project scope.",
-  },
-  {
-    question: "Is my website mobile-friendly?",
-    answer:
-      "Absolutely. Every page is built responsively so it feels fast, clear, and polished across phones, tablets, and desktop screens.",
-  },
-  {
-    question: "Do I need to know how to code?",
-    answer:
-      "No. We handle the technical side and can also connect a CMS or admin flow so your team can manage content without writing code.",
-  },
-  {
-    question: "What if I need e-commerce or custom features?",
-    answer:
-      "We can scope payment flows, dashboards, booking systems, integrations, and other custom features as part of the build.",
-  },
-  {
-    question: "Do I need a big budget?",
-    answer:
-      "Not necessarily. We offer different investment tiers so businesses can start with the right level of infrastructure and grow over time.",
-  },
-];
-
-export default function Home() {
+function ArrowIcon() {
   return (
-    <main className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
-      <section className="mx-auto w-full max-w-[1440px] bg-[#F2F2F2]">
-        <div className="overflow-hidden bg-[#F2F2F2]">
-          <section className="bg-[#4b4b4b] px-5 py-8 sm:px-8 lg:px-12 lg:py-9">
-            <div className="mx-auto max-w-[1060px]">
-              <p className="mb-3 text-[11px] uppercase tracking-[0.12em] text-white/55">
-                Home
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14" />
+      <path d="m13 5 7 7-7 7" />
+    </svg>
+  );
+}
+
+function SectionEyebrow({
+  children,
+  align = "center",
+}: {
+  children: ReactNode;
+  align?: "center" | "left";
+}) {
+  return (
+    <div
+      className={`mb-5 flex items-center gap-3 text-sm font-semibold tracking-wide text-emerald-500 ${
+        align === "center" ? "justify-center" : ""
+      }`}
+    >
+      <span className="h-px w-12 bg-emerald-500/70" />
+      <span>{children}</span>
+      {align === "center" ? <span className="h-px w-12 bg-emerald-500/70" /> : null}
+    </div>
+  );
+}
+
+function PrimaryButton({ children }: { children: ReactNode }) {
+  return (
+    <Link
+      href="/contact"
+      className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-400"
+    >
+      {children}
+    </Link>
+  );
+}
+
+function SecondaryButton({ children }: { children: ReactNode }) {
+  return (
+    <Link
+      href="/portfolio"
+      className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10"
+    >
+      {children}
+    </Link>
+  );
+}
+
+export default function HomePage() {
+  return (
+    <main className={`${montserrat.className} min-h-screen bg-[#081116] text-white`}>
+      <section
+        id="home"
+        className="relative overflow-hidden border-b border-emerald-500/10"
+      >
+        <div className="absolute inset-0">
+          <Image
+            src="/images/Home-hero.png"
+            alt="De-Verge Hub team in an office workspace"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,21,0.72)_0%,rgba(7,17,21,0.66)_45%,rgba(7,17,21,0.78)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
+        </div>
+
+        <div className="relative mx-auto flex min-h-[56rem] w-full max-w-6xl flex-col px-6 pb-16 pt-6 md:px-10 lg:px-12">
+         <SiteNavbar />
+
+          <div className="relative z-10 flex flex-1 items-center py-20 md:py-24">
+            <div className="max-w-4xl pl-0 md:pl-10">
+              <h1 className="max-w-5xl text-5xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
+                Cutting-Edge Digital
+                <br />
+                Solutions to <span className="text-emerald-400">Elevate</span>
+                <br />
+                Your Business
+              </h1>
+
+              <p className="mt-8 max-w-3xl text-lg leading-8 text-white/86 md:text-[1.15rem] md:leading-9">
+                We design, build, and scale custom software solutions
+                <br className="hidden md:block" />
+                for startups, enterprises, and growing businesses.
               </p>
 
-              <div className="relative overflow-hidden bg-[#09110d] px-6 py-6 text-white shadow-[0_18px_45px_rgba(0,0,0,0.28)] sm:px-8 sm:py-8 lg:min-h-[544px] lg:px-11 lg:py-7">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,14,10,0.92),rgba(6,17,12,0.72)_55%,rgba(14,76,49,0.45))]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_52%,rgba(31,161,95,0.16),transparent_28%),radial-gradient(circle_at_22%_78%,rgba(255,255,255,0.09),transparent_18%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0)_26%,rgba(0,0,0,0.18)_100%)]" />
-
-                <div className="absolute inset-0 opacity-45">
-                  <div className="absolute inset-y-0 left-[15%] w-px bg-white/10" />
-                  <div className="absolute inset-y-0 left-[32%] w-px bg-white/10" />
-                  <div className="absolute inset-y-0 left-[49%] w-px bg-white/10" />
-                  <div className="absolute inset-y-0 left-[66%] w-px bg-white/10" />
-                  <div className="absolute inset-y-0 left-[83%] w-px bg-white/10" />
-                  <div className="absolute left-0 right-0 top-[18%] h-px bg-white/10" />
-                  <div className="absolute left-0 right-0 top-[46%] h-px bg-white/10" />
-                  <div className="absolute left-0 right-0 top-[74%] h-px bg-white/10" />
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 h-[34%] bg-[linear-gradient(180deg,rgba(8,12,10,0),rgba(8,12,10,0.7)_38%,rgba(8,12,10,0.96))]" />
-
-                <div className="absolute bottom-[10%] left-[6%] h-16 w-24 rounded-[10px] border border-white/8 bg-black/25 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] blur-[0.2px]" />
-                <div className="absolute bottom-[11%] left-[25%] h-20 w-28 rounded-[12px] border border-white/8 bg-black/25 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]" />
-                <div className="absolute bottom-[12%] left-[48%] h-16 w-24 rounded-[10px] border border-white/8 bg-black/20" />
-                <div className="absolute bottom-[14%] right-[17%] h-20 w-32 rounded-[12px] border border-white/8 bg-black/30" />
-                <div className="absolute bottom-[16%] right-[5%] h-14 w-16 rounded-[10px] bg-white/8" />
-
-                <div className="absolute bottom-[13%] left-[18%] h-28 w-14 rounded-t-[28px] bg-black/25 blur-[1px]" />
-                <div className="absolute bottom-[13%] left-[41%] h-24 w-12 rounded-t-[24px] bg-black/25 blur-[1px]" />
-                <div className="absolute bottom-[14%] right-[24%] h-28 w-14 rounded-t-[28px] bg-black/30 blur-[1px]" />
-                <div className="absolute bottom-[14%] right-[10%] h-24 w-12 rounded-t-[24px] bg-black/30 blur-[1px]" />
-
-                <div className="relative z-10 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-10 w-10 place-items-center rounded-[10px] border border-[#27c978]/30 bg-[#0a2117]/80 shadow-[0_0_18px_rgba(31,161,95,0.12)]">
-                      <div className="grid grid-cols-3 gap-[2px]">
-                        {Array.from({ length: 9 }).map((_, index) => (
-                          <span
-                            key={index}
-                            className={`h-[5px] w-[5px] rounded-full ${
-                              index % 2 === 0 ? "bg-[#1ed17d]" : "bg-[#147b4a]"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-[14px] font-bold tracking-[0.04em] text-[#18c26f]">
-                        DE-VERGE
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10">
-                    <nav className="flex flex-wrap items-center gap-5 text-[13px] text-white/80">
-                      {heroNavItems.map((item, index) => (
-                        <a
-                          key={item}
-                          href="#"
-                          className={`transition hover:text-white ${
-                            index === 0 ? "text-[#18c26f]" : ""
-                          }`}
-                        >
-                          {item}
-                        </a>
-                      ))}
-                    </nav>
-                    <button className="h-11 rounded-full bg-[#1daa62] px-7 text-[15px] font-medium text-white transition hover:bg-[#179553]">
-                      Contact Us
-                    </button>
-                  </div>
-                </div>
-
-                <div className="relative z-10 mt-12 max-w-[760px] lg:mt-14 lg:pl-[34px]">
-                  <h1
-                    className={`${montserrat.className} max-w-[11ch] text-[3rem] font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-[4rem] lg:text-[4.6rem]`}
-                  >
-                    Cutting-Edge Digital Solutions to{" "}
-                    <span className="text-[#1ed17d]">Elevate</span> Your
-                    Business
-                  </h1>
-
-                  <p className="mt-5 max-w-[710px] text-[18px] leading-[1.5] text-white/88 sm:text-[20px]">
-                    We design, build, and scale custom software solutions for
-                    startups, enterprises, and growing businesses.
-                  </p>
-
-                  <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                    <button className="inline-flex h-14 items-center justify-center rounded-full bg-[#1daa62] px-8 text-[18px] font-medium text-white transition hover:bg-[#179553]">
-                      Schedule A Meeting
-                      <span className="ml-3 text-[22px]">→</span>
-                    </button>
-                    <button className="inline-flex h-14 items-center justify-center rounded-full border border-[#1e9b5c] bg-black/20 px-8 text-[18px] font-medium text-white transition hover:bg-black/35">
-                      View Our Work
-                    </button>
-                  </div>
-                </div>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <PrimaryButton>
+                  Schedule A Meeting <ArrowIcon />
+                </PrimaryButton>
+                <SecondaryButton>View Our Work</SecondaryButton>
               </div>
             </div>
-          </section>
-                      
-          <div className="space-y-0 bg-[#F2F2F2]">
-            <section className="w-full bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-[76px]">
-              <div className="mx-auto max-w-[900px] text-center">
-                <p
-                  className={`${montserrat.className} text-[20px] font-semibold leading-none tracking-[0] text-[#1A9E5C] lg:text-[22px]`}
-                >
-                  What We Do
-                </p>
-                <h2
-                  className={`${montserrat.className} mx-auto mt-3 max-w-[760px] text-[2.35rem] font-semibold leading-[1.08] tracking-[-0.03em] text-[#202225] sm:text-[3rem] lg:text-[3.25rem]`}
-                >
-                  We Understand The Problem
-                </h2>
-                <div className="mx-auto mt-3 h-[3px] w-[482px] max-w-full bg-[#18A85F]" />
-              </div>
-
-              <div className="mx-auto mt-10 grid max-w-[920px] items-start gap-6 lg:grid-cols-[154px_1fr]">
-                <div className="space-y-2 pt-1">
-                  {approachTabs.map((tab, index) => (
-                    <button
-                      key={tab}
-                      className={`w-full rounded-[8px] px-4 py-[10px] text-center text-[13px] font-medium transition ${
-                        index === 0
-                          ? "bg-[#1FA15F] text-white shadow-sm"
-                          : "bg-[#d7d9ff] text-slate-800 hover:bg-[#cfd2ff]"
-                      }`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-
-                <div>
-                  <p className="max-w-[640px] text-[15px] leading-[1.45] text-slate-800">
-                    We don&apos;t just &ldquo;build websites.&rdquo; We create
-                    digital platforms designed to drive growth, attract the
-                    right audience, and convert visitors into loyal customers.
-                  </p>
-
-                  <div className="mt-5 space-y-5">
-                    {approachPoints.map((point) => (
-                      <article key={point.title} className="flex gap-3.5">
-                        <div className="mt-[3px] text-[22px] font-bold leading-none text-[#1FA15F]">
-                          »
-                        </div>
-                        <div>
-                          <h3 className="text-[14px] font-semibold text-slate-900">
-                            {point.title}
-                          </h3>
-                          <p className="mt-1 max-w-[650px] text-[14px] leading-[1.35] text-slate-800">
-                            {point.description}
-                          </p>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-[78px]">
-              <div className="mx-auto max-w-[920px]">
-                <div className="max-w-[820px]">
-                  <p className="text-[18px] font-medium text-[#18A85F]">
-                    Websites That Work As A Growth Engine
-                  </p>
-                  <div className="mt-3 grid gap-6 text-[12px] leading-[1.45] text-slate-700 md:grid-cols-2">
-                    <p>
-                      You didn&apos;t build a business just to have something
-                      online. You built it to grow your business, connect with
-                      the right audience, and turn interest into revenue.
-                    </p>
-                    <p>
-                      We know the frustration of investing time and money into a
-                      site that looks good but does not convert. This is about
-                      building a website that works strategically for your
-                      business.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex justify-center">
-                  <button className="rounded-[6px] bg-[#18A85F] px-6 py-2.5 text-[11px] font-medium text-white transition hover:bg-[#149953]">
-                    Build My Growth Website
-                  </button>
-                </div>
-
-                <div className="mx-auto mt-8 grid max-w-[760px] gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
-                  {showcaseCards.map((card, index) => (
-                    <article
-                      key={card.title}
-                      className={`group overflow-hidden rounded-[8px] border border-slate-200 bg-gradient-to-br ${card.accent} p-[6px] shadow-[0_8px_20px_rgba(12,22,18,0.08)]`}
-                    >
-                      <div className="flex aspect-[0.78] flex-col overflow-hidden rounded-[6px] border border-white/70 bg-white/85 p-[10px]">
-                        <div className="flex items-center justify-between">
-                          <div className="h-2 w-14 rounded-full bg-slate-200" />
-                          <div className="flex gap-1.5">
-                            <span className="h-2 w-2 rounded-full bg-slate-300" />
-                            <span className="h-2 w-2 rounded-full bg-slate-300" />
-                            <span className="h-2 w-2 rounded-full bg-slate-300" />
-                          </div>
-                        </div>
-                        <div
-                          className={`mt-3 flex-1 rounded-[6px] ${
-                            index === 2
-                              ? "bg-[linear-gradient(160deg,_#0d1511,_#5ba54a_45%,_#f0f68f)]"
-                              : index === 5
-                                ? "bg-[linear-gradient(160deg,_#2b1c18,_#5b382c_45%,_#e7b878)]"
-                                : "bg-[linear-gradient(180deg,_rgba(241,245,249,0.95),_rgba(255,255,255,0.8))]"
-                          } p-3`}
-                        >
-                          <div className="flex h-full flex-col justify-between">
-                            <div>
-                              <div className="h-2.5 w-16 rounded-full bg-white/80" />
-                              <div className="mt-2.5 h-16 rounded-[8px] bg-white/70 shadow-sm" />
-                            </div>
-                            <div className="space-y-2">
-                              <div className="h-2 w-4/5 rounded-full bg-white/80" />
-                              <div className="h-2 w-3/5 rounded-full bg-white/60" />
-                              <div className="grid grid-cols-3 gap-2 pt-1">
-                                <div className="h-12 rounded-[8px] bg-white/70" />
-                                <div className="h-12 rounded-[8px] bg-white/60" />
-                                <div className="h-12 rounded-[8px] bg-white/50" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="mt-3">
-                          <p className="text-[11px] font-semibold text-slate-900">
-                            {card.title}
-                          </p>
-                          <p className="text-[9px] uppercase tracking-[0.18em] text-slate-500">
-                            {card.type}
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-[82px]">
-              <div className="mx-auto max-w-[1060px] text-center">
-                <p className="text-[18px] font-medium text-[#18A85F]">
-                  Deployment Options
-                </p>
-                <h2 className="mt-1 text-[34px] font-semibold leading-tight text-slate-900 sm:text-[42px]">
-                  Investment Tiers.
-                </h2>
-                <div className="mx-auto mt-2 h-[2px] w-[250px] bg-[#18A85F]" />
-                <p className="mx-auto mt-3 max-w-[520px] text-[12px] leading-[1.4] text-slate-700">
-                  Transparent pricing for technical excellence. Select the node
-                  that fits your current growth trajectory.
-                </p>
-              </div>
-
-              <div className="mx-auto mt-10 grid max-w-[940px] gap-4 lg:grid-cols-[1fr_1.08fr_1fr]">
-                {pricingTiers.map((tier) => (
-                  <article
-                    key={tier.name}
-                    className={`flex h-full flex-col rounded-[12px] border p-4 text-left shadow-[0_12px_30px_rgba(12,22,18,0.08)] lg:min-h-[405px] ${
-                      tier.featured
-                        ? "border-slate-900 bg-[#131c1f] text-white"
-                        : "border-slate-200 bg-white text-slate-900"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={`grid h-9 w-9 place-items-center rounded-[8px] text-sm font-semibold ${
-                          tier.featured
-                            ? "bg-white/8 text-emerald-300"
-                            : "bg-emerald-100 text-emerald-700"
-                        }`}
-                      >
-                        {tier.code}
-                      </div>
-                      <div>
-                        <h3 className="text-[15px] font-semibold">{tier.name}</h3>
-                        <p
-                          className={`mt-1 text-[10px] leading-[1.45] ${
-                            tier.featured ? "text-slate-300" : "text-slate-600"
-                          }`}
-                        >
-                          {tier.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6">
-                      <p
-                        className={`text-[11px] ${
-                          tier.featured ? "text-slate-400" : "text-slate-500"
-                        }`}
-                      >
-                        Starting From
-                      </p>
-                      <div className="mt-1 flex items-end gap-2">
-                        <span className="text-[32px] font-semibold leading-none text-[#1773C8]">
-                          {tier.price}
-                        </span>
-                        <span
-                          className={`pb-1 text-[10px] ${
-                            tier.featured ? "text-slate-400" : "text-slate-500"
-                          }`}
-                        >
-                          {tier.priceNote}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mt-5">
-                      <p className="text-[11px] font-semibold">What You Get</p>
-                      <ul className="mt-3 space-y-2.5">
-                        {tier.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className={`flex gap-2 text-[10px] leading-[1.45] ${
-                              tier.featured ? "text-slate-300" : "text-slate-600"
-                            }`}
-                          >
-                            <span className="mt-[4px] h-[6px] w-[6px] shrink-0 rounded-full bg-[#18A85F]" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div
-                      className={`mt-6 rounded-[10px] p-3 ${
-                        tier.featured
-                          ? "bg-white/8"
-                          : tier.name === "The Scale Suite"
-                            ? "bg-sky-50"
-                            : "bg-emerald-50"
-                      }`}
-                    >
-                      <p className="text-[11px] font-semibold text-[#18A85F]">
-                        {tier.bonusTitle}
-                      </p>
-                      <ul
-                        className={`mt-2 space-y-1.5 text-[10px] leading-[1.45] ${
-                          tier.featured ? "text-slate-300" : "text-slate-600"
-                        }`}
-                      >
-                        {tier.bonus.map((item) => (
-                          <li key={item}>- {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <p className="mt-4 text-[9px] leading-[1.35] text-rose-400">
-                      Note: Domain and hosting prices are not included.
-                    </p>
-
-                    <button
-                      className={`mt-auto rounded-[8px] px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.06em] transition ${
-                        tier.featured
-                          ? "bg-[#18A85F] text-white hover:bg-[#149953]"
-                          : "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
-                      }`}
-                    >
-                      {tier.cta}
-                    </button>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="bg-[#0d1621] px-5 py-16 text-white sm:px-8 lg:px-12 lg:py-[84px]">
-              <div className="mx-auto max-w-[920px]">
-                <div>
-                  <p className="text-[11px] text-[#1ed17d]">Growth-engineered</p>
-                  <h2 className="mt-1 text-[34px] font-medium leading-tight sm:text-[42px]">
-                    Your Trusted Digital Partner
-                  </h2>
-                  <div className="mt-2 h-[2px] w-[244px] bg-[#1ed17d]" />
-                  <p className="mt-3 max-w-[680px] text-[12px] leading-[1.45] text-slate-300">
-                    We design, market, and optimize digital experiences that
-                    help professional service and brands attract customers,
-                    convert leads, and scale sustainably.
-                  </p>
-                </div>
-
-                <div className="mt-8 grid gap-4 border-y border-white/12 py-5 sm:grid-cols-2 lg:grid-cols-4">
-                  {trustedStats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="border-white/12 pr-4 lg:border-r last:lg:border-r-0"
-                    >
-                      <p className="text-[42px] font-semibold leading-none text-[#1ed17d]">
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-[12px] text-slate-300">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-10">
-                  <p className="text-[11px] text-[#1ed17d]">Testimonials</p>
-                  <h3 className="mt-1 text-[28px] font-medium sm:text-[38px]">
-                    What Our Clients Say
-                  </h3>
-                  <div className="mt-2 h-[2px] w-[172px] bg-[#1ed17d]" />
-
-                  <div className="mt-6 grid gap-4 lg:grid-cols-3">
-                    {testimonials.map((testimonial) => (
-                      <article
-                        key={testimonial.name}
-                        className="flex min-h-[178px] flex-col rounded-[10px] border border-white/8 bg-[#121f31] p-5 shadow-[0_16px_28px_rgba(0,0,0,0.2)]"
-                      >
-                        <div>
-                          <h4 className="text-[15px] font-medium text-white">
-                            {testimonial.name}
-                          </h4>
-                          <p className="mt-1 text-[10px] text-slate-400">
-                            {testimonial.location}
-                          </p>
-                        </div>
-                        <p className="mt-5 flex-1 text-[11px] leading-[1.5] text-slate-300">
-                          {testimonial.quote}
-                        </p>
-                        <div className="mt-4 flex items-center justify-between gap-3">
-                          <span className="text-[9px] text-slate-500">
-                            {testimonial.date}
-                          </span>
-                          <span className="text-[12px] tracking-[0.2em] text-[#f2c34f]">
-                            ★★★★★
-                          </span>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-12">
-                  <h3 className="text-[32px] font-medium sm:text-[44px]">Our Offer</h3>
-                  <div className="mt-2 h-[2px] w-[244px] bg-[#1ed17d]" />
-                  <p className="mt-3 max-w-[720px] text-[11px] leading-[1.55] text-slate-300">
-                    We don&apos;t just &quot;make websites.&quot; We engineer
-                    high-yield digital assets. This offer is a specialized
-                    entry-point for brands ready to scale their technical
-                    infrastructure.
-                  </p>
-
-                  <div className="mt-5 space-y-3">
-                    {offerItems.map((item) => (
-                      <div key={item} className="flex items-start gap-3">
-                        <div className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-md border border-[#67d9a5]/30 bg-[#173246] text-[12px] text-[#9feec5]">
-                          ✦
-                        </div>
-                        <p className="text-[15px] text-slate-100">{item}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-12 grid gap-8 lg:grid-cols-[240px_1fr] lg:items-start">
-                  <article className="order-2 rounded-[10px] bg-white p-6 text-center text-slate-900 shadow-[0_24px_45px_rgba(0,0,0,0.2)] lg:order-1 lg:mt-[200px]">
-                    <div className="mx-auto grid h-10 w-10 place-items-center rounded-[6px] bg-[#acd8af] text-[18px] text-[#1f7c43]">
-                      ✓
-                    </div>
-                    <h3 className="mt-5 text-[20px] font-semibold text-[#2f8d43]">
-                      Request Received!
-                    </h3>
-                    <p className="mt-3 text-[13px] leading-[1.55] text-slate-700">
-                      Excellent choice. Our strategy team is reviewing your
-                      profile for <span className="font-semibold text-[#2f8d43]">growth</span>{" "}
-                      plan.
-                    </p>
-                    <p className="mt-2 text-[13px] text-slate-800">
-                      We&apos;ll be in touch within 24 hours.
-                    </p>
-                  </article>
-
-                  <article className="order-1 rounded-[12px] bg-white p-7 text-slate-900 shadow-[0_28px_50px_rgba(0,0,0,0.25)] lg:order-2 lg:mx-auto lg:w-[332px]">
-                    <div className="text-center">
-                      <h3 className="text-[20px] font-semibold text-[#2f8d43]">
-                        Book Your Consultation
-                      </h3>
-                      <p className="mt-1 text-[13px] font-medium text-slate-700">
-                        Let&apos;s Get Your Details
-                      </p>
-                    </div>
-
-                    <form className="mt-7 space-y-4">
-                      {consultationFields.map((field) => (
-                        <label key={field.label} className="block">
-                          <span className="text-[13px] font-medium text-slate-800">
-                            {field.label}
-                          </span>
-                          <input
-                            type={field.type}
-                            placeholder={field.placeholder}
-                            className="mt-2 h-[44px] w-full rounded-[12px] border border-slate-300 px-4 text-[14px] text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#2f8d43] focus:ring-2 focus:ring-[#2f8d43]/15"
-                          />
-                        </label>
-                      ))}
-
-                      <label className="block">
-                        <span className="text-[13px] font-medium text-slate-800">
-                          Select Tier
-                        </span>
-                        <select className="mt-2 h-[44px] w-full rounded-[12px] border border-slate-300 bg-white px-4 text-[14px] text-slate-500 outline-none transition focus:border-[#2f8d43] focus:ring-2 focus:ring-[#2f8d43]/15">
-                          <option>Select Tier</option>
-                          <option>The Launchpad</option>
-                          <option>The Growth Engine</option>
-                          <option>The Scale Suite</option>
-                        </select>
-                      </label>
-
-                      <button className="mt-2 h-[44px] w-full rounded-[8px] bg-[#2f8d43] text-[14px] font-semibold text-white transition hover:bg-[#27763a]">
-                        Submit
-                      </button>
-                    </form>
-                  </article>
-                </div>
-
-                <div className="mx-auto mt-14 max-w-[520px]">
-                  <p className="text-[11px] text-[#1ed17d]">
-                    Frequently Asked Questions
-                  </p>
-                  <h3 className="mt-1 text-[30px] font-medium sm:text-[40px]">
-                    Answers to Your Questions
-                  </h3>
-                  <div className="mt-2 h-[2px] w-[250px] bg-[#1ed17d]" />
-
-                  <div className="mt-6 divide-y divide-white/20 border-t border-white/20">
-                    {faqItems.map((item, index) => (
-                      <details
-                        key={item.question}
-                        className="group py-3"
-                        open={index === 0}
-                      >
-                        <summary className="flex list-none items-center justify-between gap-4 text-[13px] text-slate-100 marker:content-none">
-                          <span>{item.question}</span>
-                          <span className="text-[18px] text-slate-400 transition group-open:rotate-45">
-                            +
-                          </span>
-                        </summary>
-                        <p className="pr-8 pt-3 text-[11px] leading-[1.45] text-slate-300">
-                          {item.answer}
-                        </p>
-                      </details>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </section>
+
+      <section className="bg-[#081116] px-6 py-10 md:px-10 lg:px-12">
+        <div className="mx-auto grid max-w-5xl gap-8 text-center md:grid-cols-3">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <div className="text-5xl font-extrabold text-emerald-500 md:text-[3.6rem]">
+                {stat.value}
+              </div>
+              <p className="mt-1 text-2xl font-medium text-white/92">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="bg-[#081417] px-6 py-12 md:px-10 lg:px-12">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.02fr_1fr]">
+          <div className="relative overflow-hidden rounded-[0.6rem] border-t-[6px] border-r-[6px] border-emerald-500 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
+            <div className="relative h-[22rem] md:h-[25rem]">
+              <Image
+                src="/images/Home-offer.png"
+                alt="De-Verge Hub team collaborating"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 560px"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 h-2 w-32 bg-[#0d5ca8]" />
+          </div>
+
+          <div>
+            <SectionEyebrow align="left">Who We Are</SectionEyebrow>
+            <h2 className="max-w-xl text-4xl font-bold leading-tight text-white md:text-[3.2rem]">
+              Our story started with a
+              <br />
+              dedicated team of <span className="text-emerald-500">passionate</span>
+              <br />
+              <span className="text-emerald-500">innovators.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/78 md:text-lg">
+              We take pride in our dedication to excellence, innovative
+              solutions, and steadfast commitment to client satisfaction.
+            </p>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/78 md:text-lg">
+              Our expertise has empowered countless businesses to enhance their
+              digital presence and achieve remarkable growth.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-5">
+              {[
+                ["5+ Years", "Industry Experience"],
+                ["15+ Experts", "Dedicated Professionals"],
+              ].map(([title, subtitle]) => (
+                <div
+                  key={title}
+                  className="rounded-lg bg-[#3a4551] px-6 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.16)]"
+                >
+                  <div className="text-[1.85rem] font-semibold text-emerald-400">
+                    {title}
+                  </div>
+                  <div className="text-sm text-white/90">{subtitle}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <PrimaryButton>
+                Learn More <ArrowIcon />
+              </PrimaryButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="service" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
+        <div className="mx-auto w-full max-w-[1346px]">
+          <SectionEyebrow>What We Offer</SectionEyebrow>
+          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
+            What sets us apart? We deliver
+            <br />
+            holistic solutions by seamlessly
+            <br />
+            integrating <span className="text-emerald-500">strategy, design, and</span>
+            <br />
+            <span className="text-emerald-500">technology.</span>
+          </h2>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="rounded-[0.9rem] bg-[#237545] px-6 py-8 shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition duration-200 hover:-translate-y-1"
+              >
+                <div className="mb-6 inline-flex rounded-lg bg-white/12 p-3 text-white">
+                  {service.icon}
+                </div>
+                <h3 className="text-[2rem] font-bold leading-tight text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-base leading-8 text-white/90">
+                  {service.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" className="bg-[#081216] px-6 py-24 md:px-10 lg:px-12">
+        <div className="mx-auto w-full max-w-[1346px]">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <SectionEyebrow align="left">What We&apos;ve Done</SectionEyebrow>
+              <h2 className="max-w-4xl text-4xl font-bold leading-tight text-white md:text-[3.8rem]">
+                Explore some of our
+                <br />
+                <span className="text-emerald-500">hands-on projects,</span>
+                <br />
+                delivered with a focus on
+                <br />
+                client satisfaction.
+              </h2>
+            </div>
+
+            <PrimaryButton>
+              Learn More <ArrowIcon />
+            </PrimaryButton>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="overflow-hidden rounded-[1rem] bg-white text-slate-950 shadow-[0_24px_50px_rgba(0,0,0,0.22)]"
+              >
+                <div className="relative h-52 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 384px"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-[2rem] font-bold leading-tight">{project.title}</h3>
+                  <p className="mt-2 text-xl font-semibold text-blue-600">
+                    {project.category}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
+        <div className="mx-auto w-full max-w-[1346px]">
+          <SectionEyebrow>Testimonial</SectionEyebrow>
+          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
+            See how our users have
+            <br />
+            significantly reduced their <span className="text-emerald-500">Startup</span>
+            <br />
+            <span className="text-emerald-500">and SaaS solution expenses.</span>
+          </h2>
+
+          <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {testimonials.map((testimonial, index) => (
+              <article
+                key={`${testimonial.name}-${index}`}
+                className={`rounded-[1.6rem] border px-6 py-6 ${
+                  index === 0
+                    ? "border-emerald-500/35 bg-[linear-gradient(180deg,#04170d_0%,#0b1517_100%)]"
+                    : "border-white/15 bg-[linear-gradient(180deg,#04080d_0%,#0c1517_100%)]"
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/12">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">{testimonial.name}</h3>
+                    <p className="text-sm text-white/65">{testimonial.location}</p>
+                  </div>
+                </div>
+                <p className="mt-6 text-sm leading-7 text-white/76">
+                  {testimonial.quote}
+                </p>
+                <div className="mt-7 flex items-center justify-between text-xs text-white/60">
+                  <span>{testimonial.date}</span>
+                  <span className="tracking-[0.25em] text-yellow-400">*****</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="relative overflow-hidden px-6 py-24 md:px-10 lg:px-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(255,255,255,0.08),_transparent_16%),radial-gradient(circle_at_right,_rgba(16,185,129,0.14),_transparent_20%),linear-gradient(180deg,_#081417_0%,_#091116_100%)]" />
+        <div className="relative mx-auto max-w-5xl rounded-[1rem] border border-emerald-500/70 bg-[#181e27] px-8 py-12 text-center shadow-[0_30px_70px_rgba(0,0,0,0.28)] md:px-16 md:py-16">
+          <div className="mx-auto inline-flex rounded-full border border-emerald-500/50 bg-emerald-500/8 px-8 py-3 text-sm font-semibold text-emerald-500">
+            • LET&apos;S WORK TOGETHER
+          </div>
+          <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-bold leading-tight text-white md:text-[3.7rem]">
+            <span className="text-emerald-500">Are You Ready To Elevate</span>
+            <br />
+            Your Business To A New
+            <br />
+            Height?
+          </h2>
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-white/85">
+            Collaborate with De Verge Hub to build high-quality software
+            solutions, delivered securely, cost-efficiently, and with flexibility.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <PrimaryButton>
+              Get Started Today <ArrowIcon />
+            </PrimaryButton>
+            <SecondaryButton>Learn More</SecondaryButton>
+          </div>
+
+          <div className="mt-12 border-t border-white/50 pt-8">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-base font-semibold text-white md:gap-10">
+              <div className="flex items-center gap-3">
+                <ShieldIcon />
+                <span>Secure &amp; Confidential</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <SpeedIcon />
+                <span>Fast Turnaround</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <WalletIcon />
+                <span>Flexible Payment Plan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[#090d16] px-6 pb-8 pt-14 md:px-10 lg:px-12">
+        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.7fr_1fr]">
+          <div>
+            <BrandMark />
+            <p className="mt-4 max-w-xs text-sm leading-6 text-white/72">
+              Empowering your digital transformation with top freelance talent
+              worldwide on our secure, cost-effective platform.
+            </p>
+             <div className="mt-6 flex gap-4">
+  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
+    <FaFacebook size={26} className="text-white" />
+  </a>
+
+  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
+    <FaInstagram size={26} className="text-white" />
+  </a>
+
+  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
+    <FaTwitter size={26} className="text-white" />
+  </a>
+
+  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
+    <FaLinkedinIn size={26} className="text-white" />
+  </a>
+</div>
+          </div>
+
+          <div>
+            <h3 className="text-[2rem] font-semibold text-white">Company</h3>
+            <ul className="mt-4 space-y-3 text-xl text-white/88">
+              {footerLinks.company.map((item) => (
+                <li key={item.label}>
+                  <Link href={footerLinkMap[item.label] ?? item.href} className="transition hover:text-emerald-400">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[2rem] font-semibold text-white">Support</h3>
+            <ul className="mt-4 space-y-3 text-xl text-white/88">
+              {footerLinks.support.map((item) => (
+                <li key={item.label}>
+                  <Link href={footerLinkMap[item.label] ?? item.href} className="transition hover:text-emerald-400">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[2rem] font-semibold text-white">Newsletter</h3>
+            <p className="mt-4 text-sm leading-6 text-white/72">
+              Join our newsletter to stay up to date on features and releases.
+            </p>
+            <form className="mt-4 space-y-3">
+              <input
+                type="email"
+                placeholder="Enter Your Email"
+                className="w-full rounded-md border border-white/25 bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-white/45 focus:border-emerald-500"
+              />
+              <button
+                type="submit"
+                className="w-full rounded-md bg-emerald-600 px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-emerald-500"
+              >
+                Subscribed
+              </button>
+            </form>
+          </div>
+        </div>
+
+       <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
+  <p className="text-center md:text-left">
+    &copy; 2023 De-Verge Hub. All rights reserved.
+  </p>
+
+  <div className="flex justify-center gap-8 md:justify-end">
+    <a href="#" className="transition hover:text-emerald-400">
+      Privacy Policy
+    </a>
+    <a href="#" className="transition hover:text-emerald-400">
+      Terms of Service
+    </a>
+  </div>
+</div>
+      </footer>
     </main>
   );
 }
+
+function BrandMark() {
+  return (
+    <div className="flex items-center">
+      <Image
+        src="/images/brandmark.png"
+        alt="De-Verge Hub Logo"
+        width={140}
+        height={40}
+       
+        className="object-contain h-auto w-auto" 
+        priority // Good practice for logos in the header (LCP)
+      />
+    </div>
+  );
+}
+
+function StrategyIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M4 19h16" />
+      <path d="M7 15V9" />
+      <path d="M12 15V5" />
+      <path d="M17 15v-3" />
+      <path d="m5 12 4-4 3 2 5-5 2 2" />
+    </svg>
+  );
+}
+
+function MarketingIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M4 12V8a2 2 0 0 1 2-2h2l6-2v16l-6-2H6a2 2 0 0 1-2-2v-4Z" />
+      <path d="M16 9a4 4 0 0 1 0 6" />
+      <path d="M18 7a7 7 0 0 1 0 10" />
+    </svg>
+  );
+}
+
+function BrandIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="m12 3 8 4v10l-8 4-8-4V7l8-4Z" />
+      <path d="M12 8v8" />
+      <path d="M8.5 10 12 8l3.5 2" />
+    </svg>
+  );
+}
+
+function PlatformIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="5" width="18" height="12" rx="2" />
+      <path d="M8 19h8" />
+      <path d="M12 17v2" />
+    </svg>
+  );
+}
+
+function CodeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <path d="m9 10 3 3 3-3" />
+      <path d="m9 14 3-3 3 3" />
+    </svg>
+  );
+}
+
+function SliderIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M6 5v14" />
+      <path d="M12 5v14" />
+      <path d="M18 5v14" />
+      <path d="M4 9h4" />
+      <path d="M10 14h4" />
+      <path d="M16 8h4" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="m12 3 7 3v6c0 4.5-2.8 7.7-7 9-4.2-1.3-7-4.5-7-9V6l7-3Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+function SpeedIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M3 12a9 9 0 1 1 18 0" />
+      <path d="M12 12 16.5 7.5" />
+      <path d="M5 15h2" />
+      <path d="M17 15h2" />
+    </svg>
+  );
+}
+
+function WalletIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="5" width="14" height="14" rx="2" />
+      <path d="M17 8h4v8h-4" />
+      <path d="M7 9h4" />
+      <path d="M7 13h3" />
+      <circle cx="18.5" cy="12" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="currentColor">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1.3 17v-5h1.9l.3-2.3h-2.2v-1.5c0-.7.2-1.1 1.2-1.1h1.2V7.1c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.2v1.5H9v2.3h1.9V19h2.4Z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M4 4 20 20" />
+      <path d="M20 4 4 20" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="currentColor">
+      <path d="M5.2 3.5A1.7 1.7 0 1 0 5.2 7a1.7 1.7 0 0 0 0-3.5ZM3.9 8.6h2.6V20H3.9V8.6Zm6.1 0h2.5v1.6h.1c.4-.8 1.4-1.9 3-1.9 3.2 0 3.8 2.1 3.8 4.9V20h-2.6v-5.8c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3V20H10V8.6Z" />
+    </svg>
+  );
+}
+
