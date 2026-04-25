@@ -179,9 +179,9 @@ function AboutPage() {
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-10 lg:px-12">
          <SiteNavbar />
 
-          <div className="grid items-center gap-12 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
+          <div className="grid items-center gap-12 py-2 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
            <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
-  <h1 className="text-3xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5.4rem]">
+  <h1 className="text-5xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5.4rem]">
     About
     <br />
     <span className="text-emerald-400">De-Verge</span> Hub
@@ -341,28 +341,31 @@ function AboutPage() {
             We come together as a team to deliver the best services to our clients.
           </h2>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {team.map((member) => (
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {team.map((member, index) => (
               <article
                 key={member.name}
-                className="group overflow-hidden rounded-[1.9rem] bg-[#10171c]"
+                className="overflow-hidden rounded-[1.25rem] border border-white/8 bg-[#0e171b]"
               >
-                <div className={`relative h-[24rem] overflow-hidden bg-gradient-to-b ${member.tone} sm:h-[26rem] lg:h-[22rem]`}>
+                <div
+                  className={`relative h-64 bg-gradient-to-b ${member.tone} ${
+                    index === 0 ? "shadow-[inset_0_-70px_80px_rgba(0,0,0,0.45)]" : ""
+                  }`}
+                >
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                    className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02)_20%,rgba(0,0,0,0.14)_58%,rgba(0,0,0,0.92)_100%)]" />
-                  <div className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-10 sm:px-5 sm:pb-5">
-                    <h3 className="text-[1.85rem] font-semibold leading-none tracking-[-0.02em] text-white">
-                      {member.name}
-                    </h3>
-                    <p className="mt-2 text-[1rem] font-medium leading-none text-white/90">
-                      {member.role}
-                    </p>
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_10%,rgba(0,0,0,0.18)_55%,rgba(0,0,0,0.78)_100%)]" />
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.85))]" />
+                </div>
+                <div className="-mt-14 px-4 pb-4 pt-1">
+                  <div className="rounded-2xl bg-black/72 px-3 py-3 backdrop-blur-sm">
+                    <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                    <p className="text-sm text-white/75">{member.role}</p>
                   </div>
                 </div>
               </article>

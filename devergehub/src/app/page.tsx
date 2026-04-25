@@ -4,9 +4,13 @@ import type { ReactNode } from "react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { SiteNavbar } from "@/components/site-navbar";
-
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -137,7 +141,13 @@ const footerLinkMap: Record<string, string> = {
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M5 12h14" />
       <path d="m13 5 7 7-7 7" />
     </svg>
@@ -159,7 +169,9 @@ function SectionEyebrow({
     >
       <span className="h-px w-12 bg-emerald-500/70" />
       <span>{children}</span>
-      {align === "center" ? <span className="h-px w-12 bg-emerald-500/70" /> : null}
+      {align === "center" ? (
+        <span className="h-px w-12 bg-emerald-500/70" />
+      ) : null}
     </div>
   );
 }
@@ -188,7 +200,9 @@ function SecondaryButton({ children }: { children: ReactNode }) {
 
 export default function HomePage() {
   return (
-    <main className={`${montserrat.className} min-h-screen bg-[#081116] text-white`}>
+    <main
+      className={`${montserrat.className} min-h-screen bg-[#081116] text-white`}
+    >
       <section
         id="home"
         className="relative overflow-hidden border-b border-emerald-500/10"
@@ -199,25 +213,28 @@ export default function HomePage() {
             alt="De-Verge Hub team in an office workspace"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,17,21,0.72)_0%,rgba(7,17,21,0.66)_45%,rgba(7,17,21,0.78)_100%)]" />
+
+          <div className="absolute inset-0 bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)]" />
+
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[56rem] w-full max-w-6xl flex-col px-6 pb-16 pt-6 md:px-10 lg:px-12">
-         <SiteNavbar />
+        <div className="relative mx-auto flex min-h-[56rem] w-full max-w- 6xl flex-col px-6 pb-16 md:px-10 lg:px-12">
+          <SiteNavbar />
 
-          <div className="relative z-10 flex flex-1 items-center py-20 md:py-24">
-            <div className="max-w-4xl pl-0 md:pl-10">
-              <h1 className="max-w-5xl text-5xl font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
-                Cutting-Edge Digital
-                <br />
-                Solutions to <span className="text-emerald-400">Elevate</span>
-                <br />
-                Your Business
-              </h1>
+          <div className="relative z-10 flex flex-1 items- center py-22 md:py-24">
+            <div className="max-w- 4xl pl-0 md:pl-10">
+              <div className="max-w-5xl font-bold text-[42px] leading-[1] tracking-[0] text-white sm:text-[64px] lg:text-[70px] space-y-2">
+          <p>Cutting-Edge Digital</p>
+          <p>
+            Solutions to <span className="text-emerald-400">Elevate</span>
+          </p>
+          <p>Your Business</p>
+        </div>
+
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-white/86 md:text-[1.15rem] md:leading-9">
                 We design, build, and scale custom software solutions
@@ -243,7 +260,9 @@ export default function HomePage() {
               <div className="text-5xl font-extrabold text-emerald-500 md:text-[3.6rem]">
                 {stat.value}
               </div>
-              <p className="mt-1 text-2xl font-medium text-white/92">{stat.label}</p>
+              <p className="mt-1 text-2xl font-medium text-white/92">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
@@ -266,10 +285,11 @@ export default function HomePage() {
 
           <div>
             <SectionEyebrow align="left">Who We Are</SectionEyebrow>
-            <h2 className="max-w-xl text-4xl font-bold leading-tight text-white md:text-[3.2rem]">
+            <h2 className="max-w-xl text-2xl font-bold leading-tight text-white md:text-[3.2rem]">
               Our story started with a
               <br />
-              dedicated team of <span className="text-emerald-500">passionate</span>
+              dedicated team of{" "}
+              <span className="text-emerald-500">passionate</span>
               <br />
               <span className="text-emerald-500">innovators.</span>
             </h2>
@@ -308,7 +328,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="service" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
+      <section
+        id="service"
+        className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12"
+      >
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionEyebrow>What We Offer</SectionEyebrow>
           <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
@@ -316,7 +339,8 @@ export default function HomePage() {
             <br />
             holistic solutions by seamlessly
             <br />
-            integrating <span className="text-emerald-500">strategy, design, and</span>
+            integrating{" "}
+            <span className="text-emerald-500">strategy, design, and</span>
             <br />
             <span className="text-emerald-500">technology.</span>
           </h2>
@@ -342,7 +366,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="portfolio" className="bg-[#081216] px-6 py-24 md:px-10 lg:px-12">
+      <section
+        id="portfolio"
+        className="bg-[#081216] px-6 py-24 md:px-10 lg:px-12"
+      >
         <div className="mx-auto w-full max-w-[1346px]">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -379,7 +406,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-[2rem] font-bold leading-tight">{project.title}</h3>
+                  <h3 className="text-[2rem] font-bold leading-tight">
+                    {project.title}
+                  </h3>
                   <p className="mt-2 text-xl font-semibold text-blue-600">
                     {project.category}
                   </p>
@@ -406,9 +435,12 @@ export default function HomePage() {
           <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
             See how our users have
             <br />
-            significantly reduced their <span className="text-emerald-500">Startup</span>
+            significantly reduced their{" "}
+            <span className="text-emerald-500">Startup</span>
             <br />
-            <span className="text-emerald-500">and SaaS solution expenses.</span>
+            <span className="text-emerald-500">
+              and SaaS solution expenses.
+            </span>
           </h2>
 
           <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -432,8 +464,12 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{testimonial.name}</h3>
-                    <p className="text-sm text-white/65">{testimonial.location}</p>
+                    <h3 className="text-xl font-bold text-white">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-sm text-white/65">
+                      {testimonial.location}
+                    </p>
                   </div>
                 </div>
                 <p className="mt-6 text-sm leading-7 text-white/76">
@@ -441,7 +477,9 @@ export default function HomePage() {
                 </p>
                 <div className="mt-7 flex items-center justify-between text-xs text-white/60">
                   <span>{testimonial.date}</span>
-                  <span className="tracking-[0.25em] text-yellow-400">*****</span>
+                  <span className="tracking-[0.25em] text-yellow-400">
+                    *****
+                  </span>
                 </div>
               </article>
             ))}
@@ -449,7 +487,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="relative overflow-hidden px-6 py-24 md:px-10 lg:px-12">
+      <section
+        id="contact"
+        className="relative overflow-hidden px-6 py-24 md:px-10 lg:px-12"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(255,255,255,0.08),_transparent_16%),radial-gradient(circle_at_right,_rgba(16,185,129,0.14),_transparent_20%),linear-gradient(180deg,_#081417_0%,_#091116_100%)]" />
         <div className="relative mx-auto max-w-5xl rounded-[1rem] border border-emerald-500/70 bg-[#181e27] px-8 py-12 text-center shadow-[0_30px_70px_rgba(0,0,0,0.28)] md:px-16 md:py-16">
           <div className="mx-auto inline-flex rounded-full border border-emerald-500/50 bg-emerald-500/8 px-8 py-3 text-sm font-semibold text-emerald-500">
@@ -464,7 +505,8 @@ export default function HomePage() {
           </h2>
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-white/85">
             Collaborate with De Verge Hub to build high-quality software
-            solutions, delivered securely, cost-efficiently, and with flexibility.
+            solutions, delivered securely, cost-efficiently, and with
+            flexibility.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -501,23 +543,35 @@ export default function HomePage() {
               Empowering your digital transformation with top freelance talent
               worldwide on our secure, cost-effective platform.
             </p>
-             <div className="mt-6 flex gap-4">
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaFacebook size={26} className="text-white" />
-  </a>
+            <div className="mt-6 flex gap-4">
+              <a
+                href="#"
+                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
+              >
+                <FaFacebook size={26} className="text-white" />
+              </a>
 
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaInstagram size={26} className="text-white" />
-  </a>
+              <a
+                href="#"
+                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
+              >
+                <FaInstagram size={26} className="text-white" />
+              </a>
 
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaTwitter size={26} className="text-white" />
-  </a>
+              <a
+                href="#"
+                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
+              >
+                <FaTwitter size={26} className="text-white" />
+              </a>
 
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaLinkedinIn size={26} className="text-white" />
-  </a>
-</div>
+              <a
+                href="#"
+                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
+              >
+                <FaLinkedinIn size={26} className="text-white" />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -525,7 +579,10 @@ export default function HomePage() {
             <ul className="mt-4 space-y-3 text-xl text-white/88">
               {footerLinks.company.map((item) => (
                 <li key={item.label}>
-                  <Link href={footerLinkMap[item.label] ?? item.href} className="transition hover:text-emerald-400">
+                  <Link
+                    href={footerLinkMap[item.label] ?? item.href}
+                    className="transition hover:text-emerald-400"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -538,7 +595,10 @@ export default function HomePage() {
             <ul className="mt-4 space-y-3 text-xl text-white/88">
               {footerLinks.support.map((item) => (
                 <li key={item.label}>
-                  <Link href={footerLinkMap[item.label] ?? item.href} className="transition hover:text-emerald-400">
+                  <Link
+                    href={footerLinkMap[item.label] ?? item.href}
+                    className="transition hover:text-emerald-400"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -567,20 +627,20 @@ export default function HomePage() {
           </div>
         </div>
 
-       <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
-  <p className="text-center md:text-left">
-    &copy; 2023 De-Verge Hub. All rights reserved.
-  </p>
+        <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
+          <p className="text-center md:text-left">
+            &copy; 2023 De-Verge Hub. All rights reserved.
+          </p>
 
-  <div className="flex justify-center gap-8 md:justify-end">
-    <a href="#" className="transition hover:text-emerald-400">
-      Privacy Policy
-    </a>
-    <a href="#" className="transition hover:text-emerald-400">
-      Terms of Service
-    </a>
-  </div>
-</div>
+          <div className="flex justify-center gap-8 md:justify-end">
+            <a href="#" className="transition hover:text-emerald-400">
+              Privacy Policy
+            </a>
+            <a href="#" className="transition hover:text-emerald-400">
+              Terms of Service
+            </a>
+          </div>
+        </div>
       </footer>
     </main>
   );
@@ -594,8 +654,7 @@ function BrandMark() {
         alt="De-Verge Hub Logo"
         width={140}
         height={40}
-       
-        className="object-contain h-auto w-auto" 
+        className="object-contain h-auto w-auto"
         priority // Good practice for logos in the header (LCP)
       />
     </div>
@@ -604,7 +663,13 @@ function BrandMark() {
 
 function StrategyIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M4 19h16" />
       <path d="M7 15V9" />
       <path d="M12 15V5" />
@@ -616,7 +681,13 @@ function StrategyIcon() {
 
 function MarketingIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M4 12V8a2 2 0 0 1 2-2h2l6-2v16l-6-2H6a2 2 0 0 1-2-2v-4Z" />
       <path d="M16 9a4 4 0 0 1 0 6" />
       <path d="M18 7a7 7 0 0 1 0 10" />
@@ -626,7 +697,13 @@ function MarketingIcon() {
 
 function BrandIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="m12 3 8 4v10l-8 4-8-4V7l8-4Z" />
       <path d="M12 8v8" />
       <path d="M8.5 10 12 8l3.5 2" />
@@ -636,7 +713,13 @@ function BrandIcon() {
 
 function PlatformIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3" y="5" width="18" height="12" rx="2" />
       <path d="M8 19h8" />
       <path d="M12 17v2" />
@@ -646,7 +729,13 @@ function PlatformIcon() {
 
 function CodeIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="4" y="4" width="16" height="16" rx="2" />
       <path d="m9 10 3 3 3-3" />
       <path d="m9 14 3-3 3 3" />
@@ -656,7 +745,13 @@ function CodeIcon() {
 
 function SliderIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-8 w-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M6 5v14" />
       <path d="M12 5v14" />
       <path d="M18 5v14" />
@@ -669,7 +764,13 @@ function SliderIcon() {
 
 function ShieldIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="m12 3 7 3v6c0 4.5-2.8 7.7-7 9-4.2-1.3-7-4.5-7-9V6l7-3Z" />
       <path d="m9 12 2 2 4-4" />
     </svg>
@@ -678,7 +779,13 @@ function ShieldIcon() {
 
 function SpeedIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M3 12a9 9 0 1 1 18 0" />
       <path d="M12 12 16.5 7.5" />
       <path d="M5 15h2" />
@@ -689,7 +796,13 @@ function SpeedIcon() {
 
 function WalletIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3" y="5" width="14" height="14" rx="2" />
       <path d="M17 8h4v8h-4" />
       <path d="M7 9h4" />
@@ -709,7 +822,13 @@ function FacebookIcon() {
 
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
@@ -719,7 +838,13 @@ function InstagramIcon() {
 
 function XIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M4 4 20 20" />
       <path d="M20 4 4 20" />
     </svg>
@@ -733,4 +858,3 @@ function LinkedInIcon() {
     </svg>
   );
 }
-

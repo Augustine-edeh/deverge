@@ -34,7 +34,7 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
 
   return (
     <header className="relative z-50 w-full">
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-6">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px- 6 py-6">
         {/* ✅ LEFT: LOGO */}
         <Link href="/" className="flex items-center">
           <Image
@@ -48,8 +48,11 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
         </Link>
 
         {/* ✅ CENTER: NAV */}
+        {/* <div className="hidden md:flex flex-1 ">  */}
+
+        
         <nav className="hidden flex-1 justify-center md:flex">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-[60px]">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -64,9 +67,9 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
               </Link>
             ))}
           </div>
-        </nav>
 
-        {/* ✅ RIGHT: BUTTON */}
+
+           {/* ✅ RIGHT: BUTTON */}
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
@@ -88,6 +91,10 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
             {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
+        </nav>
+
+       
+        {/* </div> */}
       </div>
 
       {/* ✅ MOBILE MENU */}
