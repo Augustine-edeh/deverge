@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
+import clsx from "clsx";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -150,11 +151,20 @@ function SectionEyebrow({
   );
 }
 
-function PrimaryButton({ children }: { children: ReactNode }) {
+function PrimaryButton({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <Link
       href="/contact"
-      className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-400"
+      className={clsx(
+        "inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-400",
+        className,
+      )}
     >
       {children}
     </Link>
@@ -171,7 +181,10 @@ function SecondaryButton({
   return (
     <Link
       href="/portfolio"
-      className={`inline-flex items-center justify-center rounded-full border border-emerald-500/60 px-10 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10 ${className}`}
+      className={clsx(
+        "inline-flex items-center justify-center rounded-full border border-emerald-500/60 px-10 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10",
+        className,
+      )}
     >
       {children}
     </Link>
@@ -202,32 +215,35 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[80vh] w-full max-w- 6xl flex-col px-6 pb-10 md:px-10 md:pb-12 lg:px-[74px] bg-red-500">
+        <div className="relative w-full min-h-dvh flex flex-col px-2 sm:px-6 md:px-10 lg:px-18.5 pb-10 md:pb-12">
           <SiteNavbar />
 
           <div className="relative z-10 flex flex-1 items-center py-14 md:py-16">
-            <div className="max-w - 4xl pl- 0 md:pl- 10 bg-blue-500 w-full px-[144px]">
-              <div className="max-w-5xl font-bold text-[42px] leading-[1] tracking-[0] text-white sm:text-[64px] lg:text-[70px] space-y-2">
-                <p>Cutting-Edge Digital</p>
-                <p>
+            <div className="w-full px-3 sm:px-10 md:px-18.5">
+              {/* Hero Headline texts */}
+              <div className="max-w-5xl font-bold text-4xl sm:text-6xl lg:text-7xl md:leading-16 tracking-[0] text-white">
+                <p className="text-nowrap">Cutting-Edge Digital</p>
+                <p className="text-nowrap">
                   Solutions to <span className="text-emerald-400">Elevate</span>
                 </p>
                 <p>Your Business</p>
               </div>
 
+              {/* Hero Description texts */}
               <p className="mt-8 max-w-3xl text-lg leading-8 text-white/86 md:text-[1.15rem] md:leading-9">
                 We design, build, and scale custom software solutions
                 <br className="hidden md:block" />
                 for startups, enterprises, and growing businesses.
               </p>
 
-              <div className="mt-10 flex gap-10">
-                <PrimaryButton>
+              {/* Hero CTA buttons */}
+              <div className="mt-10 flex gap-3 md:gap-10">
+                <PrimaryButton className="text-nowrap px-3! sm:px-6!">
                   Schedule A Meeting <ArrowIcon />
                 </PrimaryButton>
-                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(30,98,64,0.8)_129.95%)] text-white">
+                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(30,98,64,0.8)_129.95%)] text-white text-nowrap">
                   View Our Work
-                </SecondaryButton>{" "}
+                </SecondaryButton>
               </div>
             </div>
           </div>
@@ -315,11 +331,8 @@ export default function HomePage() {
       >
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionEyebrow>
-            <h2 className="font-bold text-2xl">
-            What We Offer
-
-            </h2>
-            </SectionEyebrow>
+            <h2 className="font-bold text-2xl">What We Offer</h2>
+          </SectionEyebrow>
           <h2 className="mx-auto max-w- xl text-center text-2xl font-bold leading-tight text-white md:text-[3rem]">
             What sets us apart? We deliver
             <br />
@@ -360,10 +373,8 @@ export default function HomePage() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <SectionEyebrow align="left">
-                <h2 className="font-bold text-2xl">
-What We&apos;ve Done
-                </h2>
-                </SectionEyebrow>
+                <h2 className="font-bold text-2xl">What We&apos;ve Done</h2>
+              </SectionEyebrow>
               <h2 className="max-w-4xl text-xl font-bold leading-tight text-white md:text-[3rem]">
                 Explore some of our
                 <br />
@@ -422,9 +433,8 @@ What We&apos;ve Done
       <section id="blog" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionEyebrow>
-                            <h2 className="font-bold text-xl">Testimonial
-</h2>
-            </SectionEyebrow>
+            <h2 className="font-bold text-xl">Testimonial</h2>
+          </SectionEyebrow>
           <h2 className="mx-auto max-w-4xl text-center text-xl font-bold leading-tight text-white md:text-[3rem]">
             See how our users have
             <br />
@@ -441,49 +451,49 @@ What We&apos;ve Done
     3. Added 'snap-x snap-mandatory' for a premium feel.
     4. Added 'pb-4' so the scrollbar doesn't touch the cards.
 */}
-<div className="mt-14 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-2 xl:grid-cols-4 md:overflow-visible">
-  {testimonials.map((testimonial, index) => (
-    <article
-      key={`${testimonial.name}-${index}`}
-      // Added 'min-w-[85vw]' and 'md:min-w-0' to ensure cards have width on mobile
-      // Added 'snap-center' to align cards during scroll
-      className={`min-w-[85vw] md:min-w-0 snap-center rounded-[1.6rem] border px-6 py-6 ${
-        index === 0
-          ? "border-emerald-500/35 bg-[linear-gradient(180deg,#04170d_0%,#0b1517_100%)]"
-          : "border-white/15 bg-[linear-gradient(180deg,#04080d_0%,#0c1517_100%)]"
-      }`}
-    >
-      <div className="flex items-center gap-4">
-        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/12">
-          <Image
-            src={testimonial.image}
-            alt={testimonial.name}
-            fill
-            className="object-cover"
-            sizes="48px"
-          />
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-white">
-            {testimonial.name}
-          </h3>
-          <p className="text-sm text-white/65">
-            {testimonial.location}
-          </p>
-        </div>
-      </div>
-      <p className="mt-6 text-sm leading-7 text-white/76">
-        {testimonial.quote}
-      </p>
-      <div className="mt-7 flex items-center justify-between text-xs text-white/60">
-        <span>{testimonial.date}</span>
-        <span className="tracking-[0.25em] text-yellow-400">
-          *****
-        </span>
-      </div>
-    </article>
-  ))}
-</div>
+          <div className="mt-14 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-2 xl:grid-cols-4 md:overflow-visible">
+            {testimonials.map((testimonial, index) => (
+              <article
+                key={`${testimonial.name}-${index}`}
+                // Added 'min-w-[85vw]' and 'md:min-w-0' to ensure cards have width on mobile
+                // Added 'snap-center' to align cards during scroll
+                className={`min-w-[85vw] md:min-w-0 snap-center rounded-[1.6rem] border px-6 py-6 ${
+                  index === 0
+                    ? "border-emerald-500/35 bg-[linear-gradient(180deg,#04170d_0%,#0b1517_100%)]"
+                    : "border-white/15 bg-[linear-gradient(180deg,#04080d_0%,#0c1517_100%)]"
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/12">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-sm text-white/65">
+                      {testimonial.location}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-6 text-sm leading-7 text-white/76">
+                  {testimonial.quote}
+                </p>
+                <div className="mt-7 flex items-center justify-between text-xs text-white/60">
+                  <span>{testimonial.date}</span>
+                  <span className="tracking-[0.25em] text-yellow-400">
+                    *****
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -535,7 +545,7 @@ What We&apos;ve Done
         </div>
       </section>
 
-            <SiteFooter />
+      <SiteFooter />
     </main>
   );
 }
@@ -737,5 +747,3 @@ function LinkedInIcon() {
     </svg>
   );
 }
-
-

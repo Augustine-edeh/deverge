@@ -34,7 +34,7 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
 
   return (
     <header className="relative z-50 w-full">
-      <div className="mx-auto flex max-w- [1280px] items-center justify-between px- 6 py-6  bg-pink-500">
+      <div className="w-full flex items-center justify-between py-6">
         {/* ✅ LEFT: LOGO */}
         <Link href="/" className="flex items-center">
           <Image
@@ -47,12 +47,8 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
           />
         </Link>
 
-        {/* ✅ CENTER: NAV */}
-        {/* <div className="hidden md:flex flex-1 ">  */}
-
-        
-        <nav className="hidden flex-1 justify-center md:flex gap-[60px] ">
-          <div className="flex items-center gap-[60px]">
+        <nav className="hidden md:flex gap-15">
+          <div className="flex items-center gap-15">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -68,33 +64,29 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
             ))}
           </div>
 
+          {/* ✅ RIGHT: BUTTON */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact"
+              className={`hidden rounded-full px-6 py-3 text-sm font-semibold transition md:inline-flex text-nowrap ${buttonClass}`}
+            >
+              Contact Us
+            </Link>
 
-           {/* ✅ RIGHT: BUTTON */}
-        <div className="flex items-center gap-3">
-          <Link
-            href="/contact"
-            className={`hidden rounded-full px-6 py-3 text-sm font-semibold transition md:inline-flex ${buttonClass}`}
-          >
-            Contact Us
-          </Link>
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            type="button"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
-              isDark
-                ? "border-white/10 bg-white/5 text-white"
-                : "border-slate-200 bg-white text-slate-900"
-            }`}
-          >
-            {menuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
-        </div>
+            {/* MOBILE MENU BUTTON */}
+            <button
+              type="button"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
+                isDark
+                  ? "border-white/10 bg-white/5 text-white"
+                  : "border-slate-200 bg-white text-slate-900"
+              }`}
+            >
+              {menuOpen ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
         </nav>
-
-       
-        {/* </div> */}
       </div>
 
       {/* ✅ MOBILE MENU */}
@@ -123,7 +115,7 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className={`mt-3 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${buttonClass}`}
+              className={`mt-3 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition text-nowrap ${buttonClass}`}
             >
               Contact Us
             </Link>
