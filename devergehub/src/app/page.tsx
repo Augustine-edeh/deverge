@@ -218,7 +218,7 @@ export default function HomePage() {
         <div className="relative w-full min-h-dvh flex flex-col px-2 sm:px-6 md:px-10 lg:px-18.5 pb-10 md:pb-12">
           <SiteNavbar />
 
-          <div className="relative z-10 flex flex-1 items-center py-14 md:py-16">
+          <div className="relative z-10 flex-1 flex items-center py-14 md:py-16">
             <div className="w-full px-3 sm:px-10 md:px-18.5">
               {/* Hero Headline texts */}
               <div className="max-w-5xl font-bold text-4xl sm:text-6xl lg:text-7xl md:leading-16 tracking-[0] text-white">

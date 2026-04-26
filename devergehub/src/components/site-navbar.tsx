@@ -64,7 +64,7 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
             ))}
           </div>
 
-          {/* ✅ RIGHT: BUTTON */}
+          {/* ✅ HEADER CTA BUTTON */}
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
