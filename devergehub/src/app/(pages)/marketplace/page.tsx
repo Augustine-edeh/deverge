@@ -7,11 +7,7 @@ const montserrat = Montserrat({
   weight: ["400", "700"],
 });
 
-const approachTabs = [
-  "Our Approach",
-  "Who This Is For",
-  "Why Work With Us",
-];
+const approachTabs = ["Our Approach", "Who This Is For", "Why Work With Us"];
 
 const approachPoints = [
   {
@@ -245,14 +241,66 @@ const faqItems = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--surface)] text-[var(--ink)]">
-      <section className="mx-auto w-full max-w-[1440px] bg-[#F2F2F2]">
-        <div className="overflow-hidden bg-[#F2F2F2]">
-          <div className="px-6 sm:px-8 lg:px-[28px]">
-            <SiteNavbar theme="light" />
+    <main className="min-h-screen bg-(--surface) text-(--ink)">
+      <section className="mx-auto w-full max-w-360 bg- [#F2F2F2]">
+        <div className="overflow-hidden bg- [#F2F2F2]">
+          <div className="relative min-h-1/2md:min-h-dvh">
+            <div className="absolute z-0 inset-0 w-full bg-[linear-gradient(104.11deg,#032815_12.95%,#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-dvh  107.75 lg:px-0 lg:py-0" />
           </div>
 
-          <div className="w-full bg-[linear-gradient(104.11deg,_#032815_12.95%,_#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-[431px] lg:px-0 lg:py-0">
+          <div className="z-10 g-[linear-gradient(104.11deg,#032815_12.95%,#010805_93.75%)] relative w-full min-h-dvh md:min-h-dvh flex flex-col px-2 sm:px-6 md:px-10 lg:px-18.5 pb-10 md:pb-12">
+            <div className="px-6 sm:px-8 lg:px-7">
+              <SiteNavbar />
+            </div>
+
+            <div className="w-full b g-[linear-gradient(104.11deg,_#032815_12.95%,_#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-107.75 lg:px-0 lg:py-0">
+              <div className="mx-auto grid h-full w-full items-center gap-12 lg:w-[1357px] lg:grid-cols-[1.08fr_0.92fr] lg:px-[28px]">
+                <div className="flex max-w-[560px] flex-col gap-5 lg:max-w-none lg:self-center">
+                  <span
+                    className={`${montserrat.className} inline-flex w-fit rounded-full bg-[#66776c] px-4 py-2 text-sm font-medium leading-none text-white/95 lg:text-[13px]`}
+                  >
+                    DeVerge Hub Ecosystem
+                  </span>
+                  <h1
+                    className={`${montserrat.className} max-w-[11ch] text-[3rem] font-bold leading-[0.98] tracking-[-0.03em] text-white sm:text-[3.75rem] lg:max-w-[700px] lg:text-[4.2rem]`}
+                  >
+                    Build Your{" "}
+                    <span className="text-[#14B86E]">Digital Legacy</span> With
+                    Us.
+                  </h1>
+                  <p
+                    className={`${montserrat.className} max-w-[600px] text-base font-normal leading-[1.22] text-white sm:text-xl lg:text-[1rem] lg:leading-[1.18]`}
+                  >
+                    From high-converting landing pages to enterprise-grade
+                    digital platforms, we build the tech that powers your
+                    business growth.
+                  </p>
+                  <div>
+                    <button className="h-[52px] rounded-[18px] bg-[#18A85F] px-10 text-sm font-semibold text-white transition hover:bg-[#149953] lg:min-w-[165px]">
+                      Get Started
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex w-full justify-center lg:justify-end">
+                  <div className="relative w-full max-w-[360px] overflow-hidden rounded-[16px] border-[5px] border-[#2a3530] bg-[#1d2723] shadow-[0_18px_45px_rgba(0,0,0,0.35)] sm:max-w-[460px] lg:h-[241px] lg:w-[532px] lg:max-w-none">
+                    <div className="relative h-[230px] w-full lg:h-full">
+                      <Image
+                        src="/images/marketplace-hero.png"
+                        alt="Marketplace hero website preview"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 532px"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,0,0,0.12))]" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="w-full bg-[linear-gradient(104.11deg,_#032815_12.95%,_#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-107.75 lg:px-0 lg:py-0">
             <div className="mx-auto grid h-full w-full items-center gap-12 lg:w-[1357px] lg:grid-cols-[1.08fr_0.92fr] lg:px-[28px]">
               <div className="flex max-w-[560px] flex-col gap-5 lg:max-w-none lg:self-center">
                 <span
@@ -264,7 +312,8 @@ export default function Home() {
                   className={`${montserrat.className} max-w-[11ch] text-[3rem] font-bold leading-[0.98] tracking-[-0.03em] text-white sm:text-[3.75rem] lg:max-w-[700px] lg:text-[4.2rem]`}
                 >
                   Build Your{" "}
-                  <span className="text-[#14B86E]">Digital Legacy</span> With Us.
+                  <span className="text-[#14B86E]">Digital Legacy</span> With
+                  Us.
                 </h1>
                 <p
                   className={`${montserrat.className} max-w-[600px] text-base font-normal leading-[1.22] text-white sm:text-xl lg:text-[1rem] lg:leading-[1.18]`}
@@ -294,7 +343,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="space-y-0 bg-[#F2F2F2]">
             <section className="w-full bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-[76px]">
@@ -452,7 +501,9 @@ export default function Home() {
                         {tier.code}
                       </div>
                       <div>
-                        <h3 className="text-[15px] font-semibold">{tier.name}</h3>
+                        <h3 className="text-[15px] font-semibold">
+                          {tier.name}
+                        </h3>
                         <p
                           className={`mt-1 text-[10px] leading-[1.45] ${
                             tier.featured ? "text-slate-300" : "text-slate-600"
@@ -492,7 +543,9 @@ export default function Home() {
                           <li
                             key={feature}
                             className={`flex gap-2 text-[10px] leading-[1.45] ${
-                              tier.featured ? "text-slate-300" : "text-slate-600"
+                              tier.featured
+                                ? "text-slate-300"
+                                : "text-slate-600"
                             }`}
                           >
                             <span className="mt-[4px] h-[6px] w-[6px] shrink-0 rounded-full bg-[#18A85F]" />
@@ -546,7 +599,9 @@ export default function Home() {
             <section className="bg-[#0d1621] px-5 py-16 text-white sm:px-8 lg:px-12 lg:py-[84px]">
               <div className="mx-auto max-w-[920px]">
                 <div>
-                  <p className="text-[11px] text-[#1ed17d]">Growth-engineered</p>
+                  <p className="text-[11px] text-[#1ed17d]">
+                    Growth-engineered
+                  </p>
                   <h2 className="mt-1 text-[34px] font-medium leading-tight sm:text-[42px]">
                     Your Trusted Digital Partner
                   </h2>
@@ -567,7 +622,9 @@ export default function Home() {
                       <p className="text-[42px] font-semibold leading-none text-[#1ed17d]">
                         {stat.value}
                       </p>
-                      <p className="mt-1 text-[12px] text-slate-300">{stat.label}</p>
+                      <p className="mt-1 text-[12px] text-slate-300">
+                        {stat.label}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -596,12 +653,12 @@ export default function Home() {
                             />
                           </div>
                           <div>
-                          <h4 className="text-[15px] font-medium text-white">
-                            {testimonial.name}
-                          </h4>
-                          <p className="mt-1 text-[10px] text-slate-400">
-                            {testimonial.location}
-                          </p>
+                            <h4 className="text-[15px] font-medium text-white">
+                              {testimonial.name}
+                            </h4>
+                            <p className="mt-1 text-[10px] text-slate-400">
+                              {testimonial.location}
+                            </p>
                           </div>
                         </div>
                         <p className="mt-5 flex-1 text-[11px] leading-[1.5] text-slate-300">
@@ -621,7 +678,9 @@ export default function Home() {
                 </div>
 
                 <div className="mt-12">
-                  <h3 className="text-[32px] font-medium sm:text-[44px]">Our Offer</h3>
+                  <h3 className="text-[32px] font-medium sm:text-[44px]">
+                    Our Offer
+                  </h3>
                   <div className="mt-2 h-[2px] w-[244px] bg-[#1ed17d]" />
                   <p className="mt-3 max-w-[720px] text-[11px] leading-[1.55] text-slate-300">
                     We don&apos;t just &quot;make websites.&quot; We engineer
@@ -643,8 +702,6 @@ export default function Home() {
                 </div>
 
                 <div className="mt-12 grid gap-8 lg:grid-cols-[240px_1fr] lg:items-start">
-                 
-
                   <article className="order-1 rounded-[12px] bg-white p-7 text-slate-900 shadow-[0_28px_50px_rgba(0,0,0,0.25)] lg:order-2 lg:mx-auto lg:w-[332px]">
                     <div className="text-center">
                       <h3 className="text-[20px] font-semibold text-[#2f8d43]">
