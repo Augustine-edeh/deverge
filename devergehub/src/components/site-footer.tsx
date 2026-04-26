@@ -28,7 +28,7 @@ function BrandMark() {
   return (
     <div className="flex items-center">
       <Image
-        src="/images/brandmark.png"
+        src="/images/Brandmark.png"
         alt="De-Verge Hub Logo"
         width={140}
         height={40}
