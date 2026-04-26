@@ -28,8 +28,8 @@ const posts = [
   {
     title: "The Future of Web Development: What to Expect in 2025",
     excerpt:
-      "Discover the emerging trends that will shape web development in the coming year, from AI integration to new frameworks and tools that promise to move teams faster.",
-    author: "CodewithHarry",
+      "Discover the emerging trends that will shape web development in the coming year, from AI integration to new frameworks and tools that promise to ....",
+          author: "CodewithHarry",
     category: "Web Dev",
     image: "/images/blog-img1.png",
     date: "March 15, 2024",
@@ -128,7 +128,7 @@ export default function BlogPage() {
                 Full-Stack Development & Design
               </div>
 
-              <h1 className="mt-7 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4.4rem]">
+              <h1 className="mt-7 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-[4rem]">
                 We build the Digital
                 <br />
                 Architecture of
@@ -136,12 +136,12 @@ export default function BlogPage() {
                 tomorrow.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72 md:text-[1.45rem] md:leading-[1.45]">
+              <p className="mt-6 max-w-2 xl text-lg leading-8 text-white/72 md:text-[1srem] md:leading-[1.45]">
                 Discover our latest insights, trends, and tips on digital
                 marketing and web development.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex gap-4">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-400"
@@ -175,7 +175,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#081216] px-6 py-14 md:px-10 lg:px-12">
+      <section className="bg-[#081216] px-6 py-4 md:px-10 lg:px-12">
         <div className="mx-auto w-full max-w-[1346px]">
           <div className="max-w-[17.5rem] rounded-[1rem] border border-white/35 bg-white/5 px-4 py-3 shadow-[0_10px_25px_rgba(0,0,0,0.12)] sm:max-w-[18rem]">
             <label className="flex items-center gap-3">

@@ -202,11 +202,11 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[80vh] w-full max-w-6xl flex-col px-6 pb-10 md:px-10 md:pb-12 lg:px-12">
+        <div className="relative mx-auto flex min-h-[80vh] w-full max-w- 6xl flex-col px-6 pb-10 md:px-10 md:pb-12 lg:px-[74px] bg-red-500">
           <SiteNavbar />
 
           <div className="relative z-10 flex flex-1 items-center py-14 md:py-16">
-            <div className="max-w-4xl pl-0 md:pl-10">
+            <div className="max-w - 4xl pl- 0 md:pl- 10 bg-blue-500 w-full px-[144px]">
               <div className="max-w-5xl font-bold text-[42px] leading-[1] tracking-[0] text-white sm:text-[64px] lg:text-[70px] space-y-2">
                 <p>Cutting-Edge Digital</p>
                 <p>
@@ -221,11 +221,11 @@ export default function HomePage() {
                 for startups, enterprises, and growing businesses.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-10">
+              <div className="mt-10 flex gap-10">
                 <PrimaryButton>
                   Schedule A Meeting <ArrowIcon />
                 </PrimaryButton>
-                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
+                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(30,98,64,0.8)_129.95%)] text-white">
                   View Our Work
                 </SecondaryButton>{" "}
               </div>
@@ -320,7 +320,7 @@ export default function HomePage() {
 
             </h2>
             </SectionEyebrow>
-          <h2 className="mx-auto max-w-4xl text-center text-2xl font-bold leading-tight text-white md:text-[3rem]">
+          <h2 className="mx-auto max-w- xl text-center text-2xl font-bold leading-tight text-white md:text-[3rem]">
             What sets us apart? We deliver
             <br />
             holistic solutions by seamlessly
@@ -436,47 +436,54 @@ What We&apos;ve Done
             </span>
           </h2>
 
-          <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {testimonials.map((testimonial, index) => (
-              <article
-                key={`${testimonial.name}-${index}`}
-                className={`rounded-[1.6rem] border px-6 py-6 ${
-                  index === 0
-                    ? "border-emerald-500/35 bg-[linear-gradient(180deg,#04170d_0%,#0b1517_100%)]"
-                    : "border-white/15 bg-[linear-gradient(180deg,#04080d_0%,#0c1517_100%)]"
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/12">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm text-white/65">
-                      {testimonial.location}
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-6 text-sm leading-7 text-white/76">
-                  {testimonial.quote}
-                </p>
-                <div className="mt-7 flex items-center justify-between text-xs text-white/60">
-                  <span>{testimonial.date}</span>
-                  <span className="tracking-[0.25em] text-yellow-400">
-                    *****
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
+          {/* 1. Changed 'grid' to 'flex' on mobile, 'md:grid' on larger screens.
+    2. Added 'overflow-x-auto' for scrolling.
+    3. Added 'snap-x snap-mandatory' for a premium feel.
+    4. Added 'pb-4' so the scrollbar doesn't touch the cards.
+*/}
+<div className="mt-14 flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-2 xl:grid-cols-4 md:overflow-visible">
+  {testimonials.map((testimonial, index) => (
+    <article
+      key={`${testimonial.name}-${index}`}
+      // Added 'min-w-[85vw]' and 'md:min-w-0' to ensure cards have width on mobile
+      // Added 'snap-center' to align cards during scroll
+      className={`min-w-[85vw] md:min-w-0 snap-center rounded-[1.6rem] border px-6 py-6 ${
+        index === 0
+          ? "border-emerald-500/35 bg-[linear-gradient(180deg,#04170d_0%,#0b1517_100%)]"
+          : "border-white/15 bg-[linear-gradient(180deg,#04080d_0%,#0c1517_100%)]"
+      }`}
+    >
+      <div className="flex items-center gap-4">
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-white/12">
+          <Image
+            src={testimonial.image}
+            alt={testimonial.name}
+            fill
+            className="object-cover"
+            sizes="48px"
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-white">
+            {testimonial.name}
+          </h3>
+          <p className="text-sm text-white/65">
+            {testimonial.location}
+          </p>
+        </div>
+      </div>
+      <p className="mt-6 text-sm leading-7 text-white/76">
+        {testimonial.quote}
+      </p>
+      <div className="mt-7 flex items-center justify-between text-xs text-white/60">
+        <span>{testimonial.date}</span>
+        <span className="tracking-[0.25em] text-yellow-400">
+          *****
+        </span>
+      </div>
+    </article>
+  ))}
+</div>
         </div>
       </section>
 

@@ -120,19 +120,20 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto mt-10 flex max-w-7xl flex-col-reverse gap-3 border-t border-white/10 pt-5 text-lg text-white/70 md:flex-row md:items-center md:justify-between">
-        <p className="text-center text-white md:text-left">
-          &copy; 2023 De-Verge Hub. All rights reserved.
-        </p>
+  <p className="text-white md:text-left">
+    &copy; 2023 De-Verge Hub. All rights reserved.
+  </p>
 
-        <div className="flex justify-center gap-6 text-white md:justify-end">
-          <a href="#" className="transition hover:text-emerald-400">
-            Privacy Policy
-          </a>
-          <a href="#" className="transition hover:text-emerald-400">
-            Terms of Service
-          </a>
-        </div>
-      </div>
+  {/* Changed flex to flex-col for stacking, and md:flex-row for desktop side-by-side */}
+  <div className="flex flex-col gap-4 text-white md:flex-row md:justify-end md:gap-6">
+    <a href="#" className="transition hover:text-emerald-400">
+      Privacy Policy
+    </a>
+    <a href="#" className="transition hover:text-emerald-400">
+      Terms of Service
+    </a>
+  </div>
+</div>
     </footer>
   );
 }

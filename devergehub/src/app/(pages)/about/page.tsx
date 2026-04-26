@@ -338,7 +338,7 @@ function AboutPage() {
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_10%,rgba(0,0,0,0.18)_55%,rgba(0,0,0,0.78)_100%)]" />
                   <div className="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.85))]" />
                 </div>
-                <div className="-mt-14 px-4 pb-4 pt-1">
+                <div className="-mt-14 pt-1">
                   <div className="rounded-2xl bg-black/72 px-3 py-3 backdrop-blur-sm">
                     <h3 className="text-lg font-semibold text-white">{member.name}</h3>
                     <p className="text-sm text-white/75">{member.role}</p>
@@ -350,38 +350,50 @@ function AboutPage() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="overflow-hidden bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.16),transparent_22%),linear-gradient(180deg,#081019_0%,#090f18_100%)] px-6 py-16 md:px-10 lg:px-12 lg:py-24"
-      >
-        <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionLabel>Join Us At De-Verge Hub!</SectionLabel>
-            <h2 className="max-w-xl text-5xl font-medium leading-[0.96] text-white md:text-[4rem]">
-              Ready for growth and innovation?
-            </h2>
-            <p className="mt-5 max-w-md text-lg leading-8 text-white/72">
-              Join De-Verge Hub, let&apos;s create something great together.
-            </p>
-            <div className="mt-8">
-              <PrimaryButton>Get Started</PrimaryButton>
-            </div>
-          </div>
+    <section
+  id="contact"
+  className="relative overflow-hidden bg-[#081019] px-6 py-16 md:px-10 lg:px-12 lg:py-24"
+>
+  {/* Layered Radial Gradients for the glow effect */}
+  <div 
+    className="absolute inset-0 z-0 pointer-events-none"
+    style={{
+      background: `
+        radial-gradient(104.15% 178.83% at 0% 50%, rgba(59, 130, 246, 0.14) 0%, rgba(59, 130, 246, 0) 24%),
+        radial-gradient(104.15% 178.83% at 100% 50%, rgba(16, 185, 129, 0.22) 0%, rgba(16, 185, 129, 0) 28%),
+        linear-gradient(180deg, #081019 0%, #090f18 100%)
+      `
+    }}
+  />
 
-          <div className="mx-auto w-full max-w-[17rem] rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,#494147_0%,#2e2b31_100%)] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:max-w-[18rem] lg:max-w-[19rem]">
-            <div className="relative h-[24rem] overflow-hidden rounded-[1.35rem] sm:h-[26rem]">
-              <Image
-                src="/images/About-footer.png"
-                alt="Join De-Verge Hub collaboration visual"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 304px"
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.1),transparent_18%),linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.22))]" />
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="relative z-10 mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+    <div>
+      <SectionLabel>Join Us At De-Verge Hub!</SectionLabel>
+      <h2 className="max-w-xl text-5xl font-medium leading-[0.96] text-white md:text-[4rem]">
+        Ready for growth and innovation?
+      </h2>
+      <p className="mt-5 max-w-md text-lg leading-8 text-white/72">
+        Join De-Verge Hub, let&apos;s create something great together.
+      </p>
+      <div className="mt-8">
+        <PrimaryButton>Get Started</PrimaryButton>
+      </div>
+    </div>
+
+    <div className="mx-auto w-full max-w-[17rem] rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,#494147_0%,#2e2b31_100%)] p-2 shadow-[0_24px_60px_rgba(0,0,0,0.28)] sm:max-w-[18rem] lg:max-w-[19rem]">
+      <div className="relative h-[24rem] overflow-hidden rounded-[1.35rem] sm:h-[26rem]">
+        <Image
+          src="/images/About-footer.png"
+          alt="Join De-Verge Hub collaboration visual"
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 304px"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_20%,rgba(255,255,255,0.1),transparent_18%),linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.22))]" />
+      </div>
+    </div>
+  </div>
+</section>
 
            <SiteFooter />
     </main>

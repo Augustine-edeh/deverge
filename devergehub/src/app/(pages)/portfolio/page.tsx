@@ -88,19 +88,19 @@ export default function PortfolioPage() {
          <SiteNavbar />
           <div className="grid items-center gap-12 py-14 lg:grid-cols-[1.02fr_0.98fr] lg:py-18">
             <div className="max-w-3xl">
-              <h1 className="text-5xl font-medium leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
+              <h1 className="text-5xl font-medium leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-[4rem]">
                 Our Work Speaks
                 <br />
                 for Itself
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-[1.8rem] md:leading-[1.22]">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-[1rem] md:leading-[1.22]">
                 Our Work Speaks for Itself Explore the digital products and
                 platforms we&apos;ve built, designed to solve real problems and drive
                 impact across industries.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex gap-4">
                 <PrimaryButton>
                   Schedule A Meeting
                   <ArrowIcon />
