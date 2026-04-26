@@ -254,8 +254,8 @@ export default function Home() {
             </div>
 
             <div className="w-full b g-[linear-gradient(104.11deg,_#032815_12.95%,_#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-107.75 lg:px-0 lg:py-0">
-              <div className="mx-auto grid h-full w-full items-center gap-12 lg:w-[1357px] lg:grid-cols-[1.08fr_0.92fr] lg:px-[28px]">
-                <div className="flex max-w-[560px] flex-col gap-5 lg:max-w-none lg:self-center">
+              <div className="mx-auto grid h-full w-full items-center gap-12 lg:w-339.25 lg:grid-cols-[1.08fr_0.92fr] lg:px-7">
+                <div className="flex max-w-140 flex-col gap-5 lg:max-w-none lg:self-center">
                   <span
                     className={`${montserrat.className} inline-flex w-fit rounded-full bg-[#66776c] px-4 py-2 text-sm font-medium leading-none text-white/95 lg:text-[13px]`}
                   >
@@ -300,6 +300,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* NOTE: remember to remove this dead code */}
           {/* <div className="w-full bg-[linear-gradient(104.11deg,_#032815_12.95%,_#010805_93.75%)] px-5 py-14 sm:px-8 sm:py-16 lg:h-107.75 lg:px-0 lg:py-0">
             <div className="mx-auto grid h-full w-full items-center gap-12 lg:w-[1357px] lg:grid-cols-[1.08fr_0.92fr] lg:px-[28px]">
               <div className="flex max-w-[560px] flex-col gap-5 lg:max-w-none lg:self-center">
