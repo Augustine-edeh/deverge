@@ -4,12 +4,8 @@ import type { ReactNode } from "react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiteNavbar } from "@/components/site-navbar";
 
 const montserrat = Montserrat({
@@ -228,13 +224,12 @@ export default function HomePage() {
           <div className="relative z-10 flex flex-1 items-center py-14 md:py-16">
             <div className="max-w-4xl pl-0 md:pl-10">
               <div className="max-w-5xl font-bold text-[42px] leading-[1] tracking-[0] text-white sm:text-[64px] lg:text-[70px] space-y-2">
-          <p>Cutting-Edge Digital</p>
-          <p>
-            Solutions to <span className="text-emerald-400">Elevate</span>
-          </p>
-          <p>Your Business</p>
-        </div>
-
+                <p>Cutting-Edge Digital</p>
+                <p>
+                  Solutions to <span className="text-emerald-400">Elevate</span>
+                </p>
+                <p>Your Business</p>
+              </div>
 
               <p className="mt-8 max-w-3xl text-lg leading-8 text-white/86 md:text-[1.15rem] md:leading-9">
                 We design, build, and scale custom software solutions
@@ -246,9 +241,10 @@ export default function HomePage() {
                 <PrimaryButton>
                   Schedule A Meeting <ArrowIcon />
                 </PrimaryButton>
-<SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
-  View Our Work
-</SecondaryButton>              </div>
+                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
+                  View Our Work
+                </SecondaryButton>{" "}
+              </div>
             </div>
           </div>
         </div>
@@ -331,10 +327,15 @@ export default function HomePage() {
 
       <section
         id="service"
-        className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12"
+        className="bg-[#0a1018] px-6 py-2 md:px-10 lg:px-12"
       >
         <div className="mx-auto w-full max-w-[1346px]">
-          <SectionEyebrow>What We Offer</SectionEyebrow>
+          <SectionEyebrow>
+            <h2 className="font-bold text-2xl">
+            What We Offer
+
+            </h2>
+            </SectionEyebrow>
           <h2 className="mx-auto max-w-4xl text-center text-2xl font-bold leading-tight text-white md:text-[3rem]">
             What sets us apart? We deliver
             <br />
@@ -352,14 +353,13 @@ export default function HomePage() {
                 key={service.title}
                 className="rounded-[0.9rem] bg-[#237545] px-6 py-8 shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition duration-200 hover:-translate-y-1"
               >
-                
                 <div className="mb-6 inline-flex rounded-lg bg-white/12 p-3 text-white">
                   {service.icon}
                 </div>
-                <h3 className="text-[2rem] font-bold leading-tight text-white">
+                <h3 className="text-[2rem] font-semibold leading-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-base leading-8 text-white/90">
+                <p className="mt-3 text-base leading-8 text-white">
                   {service.description}
                 </p>
               </article>
@@ -370,12 +370,16 @@ export default function HomePage() {
 
       <section
         id="portfolio"
-        className="bg-[#081216] px-6 py-1 md:px-10 lg:px-12"
+        className="bg-[#081216] px-6 py-10 md:px-10 lg:px-12"
       >
         <div className="mx-auto w-full max-w-[1346px]">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <SectionEyebrow align="left">What We&apos;ve Done</SectionEyebrow>
+              <SectionEyebrow align="left">
+                <h2 className="font-bold text-2xl">
+What We&apos;ve Done
+                </h2>
+                </SectionEyebrow>
               <h2 className="max-w-4xl text-xl font-bold leading-tight text-white md:text-[3rem]">
                 Explore some of our
                 <br />
@@ -433,7 +437,10 @@ export default function HomePage() {
 
       <section id="blog" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
         <div className="mx-auto w-full max-w-[1346px]">
-          <SectionEyebrow>Testimonial</SectionEyebrow>
+          <SectionEyebrow>
+                            <h2 className="font-bold text-xl">Testimonial
+</h2>
+            </SectionEyebrow>
           <h2 className="mx-auto max-w-4xl text-center text-xl font-bold leading-tight text-white md:text-[3rem]">
             See how our users have
             <br />
@@ -491,14 +498,14 @@ export default function HomePage() {
 
       <section
         id="contact"
-        className="relative overflow-hidden px-6 py-24 md:px-10 lg:px-12"
+        className="relative overflow-hidden px-4 py-2 md:px-10 lg:px-12"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,_rgba(255,255,255,0.08),_transparent_16%),radial-gradient(circle_at_right,_rgba(16,185,129,0.14),_transparent_20%),linear-gradient(180deg,_#081417_0%,_#091116_100%)]" />
-        <div className="relative mx-auto max-w-5xl rounded-[1rem] border border-emerald-500/70 bg-[#181e27] px-8 py-12 text-center shadow-[0_30px_70px_rgba(0,0,0,0.28)] md:px-16 md:py-16">
+        <div className="relative mx-auto max-w-1xl rounded-[1rem] border border-emerald-500/70 bg-[#181e27] px-8 py-12 text-center shadow-[0_30px_70px_rgba(0,0,0,0.28)] md:px-16 md:py-16">
           <div className="mx-auto inline-flex rounded-full border border-emerald-500/50 bg-emerald-500/8 px-8 py-3 text-sm font-semibold text-emerald-500">
             • LET&apos;S WORK TOGETHER
           </div>
-          <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-bold leading-tight text-white md:text-[3.7rem]">
+          <h2 className="mx-auto mt-8 max-w-4xl text-4xl font-bold leading-tight text-white md:text-[3rem]">
             <span className="text-emerald-500">Are You Ready To Elevate</span>
             <br />
             Your Business To A New
@@ -537,53 +544,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="bg-[#090d16] px-6 pb-8 pt-14 md:px-10 lg:px-12">
-        <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.7fr_1fr]">
+      <footer className="bg-[#090d16] px-6 pb-8 pt-16 md:px-10 lg:px-12">
+        <div className="mx-auto grid max-w-7xl gap-8 md:gap-10 md:grid-cols-[1.4fr_0.8fr_0.7fr_1fr]">
+          {/* Brand */}
           <div>
             <BrandMark />
-            <p className="mt-4 max-w-xs text-sm leading-6 text-white/72">
+            <p className="mt-4 max-w-lg text-base leading-6 text-white">
               Empowering your digital transformation with top freelance talent
               worldwide on our secure, cost-effective platform.
             </p>
-            <div className="mt-6 flex gap-4">
-              <a
-                href="#"
-                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
-              >
-                <FaFacebook size={26} className="text-white" />
-              </a>
 
-              <a
-                href="#"
-                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
-              >
-                <FaInstagram size={26} className="text-white" />
-              </a>
-
-              <a
-                href="#"
-                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
-              >
-                <FaTwitter size={26} className="text-white" />
-              </a>
-
-              <a
-                href="#"
-                className="grid h-12 w-12 place-items-center transition hover:opacity-80"
-              >
-                <FaLinkedinIn size={26} className="text-white" />
-              </a>
+            <div className="mt-5 flex gap-3">
+              {[FaFacebook, FaInstagram, FaXTwitter, FaLinkedinIn].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="grid h-10 w-10 place-items-center rounded-md bg-white/5 transition hover:bg-white/10"
+                  >
+                    <Icon size={18} style={{ color: "#fff" }} />
+                  </a>
+                ),
+              )}
             </div>
           </div>
 
+          {/* Company */}
           <div>
-            <h3 className="text-[2rem] font-semibold text-white">Company</h3>
-            <ul className="mt-4 space-y-3 text-xl text-white/88">
+            <h3 className="text-2xl font-semibold text-white">Company</h3>
+            <ul className="mt-4 space-y-2 text-base leading-6 text-white">
               {footerLinks.company.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={footerLinkMap[item.label] ?? item.href}
-                    className="transition hover:text-emerald-400"
+                    className="transition hover:text-emerald-400 text-lg"
                   >
                     {item.label}
                   </Link>
@@ -592,14 +586,15 @@ export default function HomePage() {
             </ul>
           </div>
 
+          {/* Support */}
           <div>
-            <h3 className="text-[2rem] font-semibold text-white">Support</h3>
-            <ul className="mt-4 space-y-3 text-xl text-white/88">
+            <h3 className="text-2xl font-semibold text-white">Support</h3>
+            <ul className="mt-4 space-y-2 text-base leading-6 text-white">
               {footerLinks.support.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={footerLinkMap[item.label] ?? item.href}
-                    className="transition hover:text-emerald-400"
+                    className="transition hover:text-emerald-400 text-lg"
                   >
                     {item.label}
                   </Link>
@@ -608,33 +603,36 @@ export default function HomePage() {
             </ul>
           </div>
 
+          {/* Newsletter */}
           <div>
-            <h3 className="text-[2rem] font-semibold text-white">Newsletter</h3>
-            <p className="mt-4 text-sm leading-6 text-white/72">
+            <h3 className="text-2xl font-semibold text-white">Newsletter</h3>
+            <p className="mt-4 text-lg leading-5 text-white">
               Join our newsletter to stay up to date on features and releases.
             </p>
-            <form className="mt-4 space-y-3">
+
+            <form className="mt-4 space-y-2">
               <input
                 type="email"
-                placeholder="Enter Your Email"
-                className="w-full rounded-md border border-white/25 bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-white/45 focus:border-emerald-500"
+                placeholder="Enter your email"
+                className="w-full rounded-md border border-white bg-transparent px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/40 focus:border-emerald-500"
               />
               <button
                 type="submit"
-                className="w-full rounded-md bg-emerald-600 px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-emerald-500"
+                className="w-full rounded-md bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500"
               >
-                Subscribed
+                Subscribe
               </button>
             </form>
           </div>
         </div>
 
-        <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
-          <p className="text-center md:text-left">
+        {/* Bottom Bar */}
+        <div className="mx-auto mt-10 flex max-w-7xl flex-col-reverse gap-3 border-t border-white/10 pt-5 text-lg text-white/70 md:flex-row md:items-center md:justify-between">
+          <p className="text-center  text-white  md:text-left">
             &copy; 2023 De-Verge Hub. All rights reserved.
           </p>
 
-          <div className="flex justify-center gap-8 md:justify-end">
+          <div className="flex justify-center gap-6 md:justify-end  text-white">
             <a href="#" className="transition hover:text-emerald-400">
               Privacy Policy
             </a>

@@ -181,15 +181,16 @@ function AboutPage() {
 
 <div className="grid items-center gap-12 py-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-12">
              <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
-  <h1 className="text-5xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5.4rem]">
+  <h1 className="text-5xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
     About
     <br />
     <span className="text-emerald-400">De-Verge</span> Hub
   </h1>
 
-<p className="mt-6 max-w-2xl mx-auto lg:mx-0 text-[16px] md:text-[20px] leading-7 md:leading-[1.4] text-white/80 font-normal">    De Verge Hub is a software development company focused on designing and
+<p className="mt-6 max-w-2xl mx-auto lg:mx-0 text-[16px] md:text-[20px] leading-7 md:leading-[1.4] text-white font-normal">    De Verge Hub is a software development company focused on designing and
     building high-quality digital solutions that help businesses grow,
     stand out, and succeed in today&apos;s digital world.
+    
   </p>
 </div>
 
