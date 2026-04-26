@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { SiteNavbar } from "@/components/site-navbar";
+import { SiteFooter } from "@/components/site-footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -119,31 +119,6 @@ const team = [
   },
 ];
 
-const companyLinks = ["About Us", "Service", "Blog", "Career", "CRS"];
-const supportLinks = ["Contact", "FAQs"];
-const footerLinkMap: Record<string, string> = {
-  "About Us": "/about",
-  Service: "/service",
-  Blog: "/blog",
-  Contact: "/contact",
-};
-
-function BrandMark() {
-  return (
-    <div className="flex items-center">
-      <Image
-        src="/images/brandmark.png"
-        alt="De-Verge Hub Logo"
-        width={140}
-        height={40}
-       
-        className="object-contain h-auto w-auto" 
-        priority // Good practice for logos in the header (LCP)
-      />
-    </div>
-  );
-}
-
 function SectionLabel({ children, dark = true }: { children: ReactNode; dark?: boolean }) {
   return (
     <div
@@ -196,12 +171,12 @@ function AboutPage() {
 
             <div className="mx-auto w-full max-w-[24rem] rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_20px_70px_rgba(0,0,0,0.24)] backdrop-blur-sm">
               <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-emerald-500/10 bg-[#13253d]/90 p-4">
-                  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-emerald-300/80">
+                <div className="rounded-2xl border border-emerald-500/10 bg-[#13253d]/90 p-4 ">
+                  <p className="text-[2.65rem] uppercase tracking-[0.35em] text-emerald-300/80">
                     Network
                   </p>
-                  <h3 className="mt-2 text-[1.85rem] font-medium text-white">Global</h3>
-                  <p className="mt-2 text-sm leading-6 text-white/58">
+                  <h3 className="mt-4 text-[1.85rem] font-medium text-white">Global</h3>
+                  <p className="mt-4 text-sm leading-6 text-white/58">
                     We create scalable software solutions powering businesses
                     across industries.
                   </p>
@@ -258,7 +233,7 @@ function AboutPage() {
               We pride ourselves on our commitment to{" "}
               <span className="text-emerald-400">excellence.</span>
             </h2>
-            <p className="mt-5font-medium text-[11.58px] leading-[15.06px] tracking-normal md:text-sm md:leading-6">
+            <p className="mt-5 font-medium text-[11.58px] leading-[15.06px] tracking-normal md:text-sm md:leading-6">
               De Verge Hub was founded to empower businesses of all sizes with
               innovative digital solutions that drive transformation, foster growth,
               and build a connected future. Our mission is to deliver cutting-edge
@@ -408,97 +383,7 @@ function AboutPage() {
         </div>
       </section>
 
-     <footer className="bg-[#0a0f18] px-6 pb-8 pt-16 text-white md:px-10 lg:px-12">
-  <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.7fr_1fr]">
-    <div>
-      <BrandMark />
-      <p className="mt-5 max-w-sm text-lg leading-8 text-white/72">
-        Empowering your digital transformation with top freelance talent
-        worldwide on our secure, cost-effective platform.
-      </p>
-
-      {/* SOCIAL ICONS ADDED HERE */}
-      <div className="mt-6 flex gap-4">
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaFacebook size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaInstagram size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaTwitter size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaLinkedinIn size={26} className="text-white" />
-  </a>
-</div>
-    </div>
-
-          <div>
-            <h3 className="text-3xl font-semibold">Company</h3>
-            <ul className="mt-5 space-y-3 text-xl text-white/85">
-              {companyLinks.map((link) => (
-                <li key={link}>
-                  <Link href={footerLinkMap[link] ?? "#"} className="transition hover:text-emerald-400">
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-semibold">Support</h3>
-            <ul className="mt-5 space-y-3 text-xl text-white/85">
-              {supportLinks.map((link) => (
-                <li key={link}>
-                  <Link href={footerLinkMap[link] ?? "#"} className="transition hover:text-emerald-400">
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-semibold">Newsletter</h3>
-            <p className="mt-5 text-lg leading-7 text-white/72">
-              Join our newsletter to stay up to date on features and releases.
-            </p>
-            <form className="mt-5 space-y-3">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="w-full rounded-md border border-white/25 bg-transparent px-4 py-3 text-base text-white outline-none placeholder:text-white/45 focus:border-emerald-500"
-              />
-              <button
-                type="submit"
-                className="w-full rounded-md bg-emerald-600 px-4 py-3 text-left text-base font-semibold text-white transition hover:bg-emerald-500"
-              >
-                Subscribed
-              </button>
-            </form>
-          </div>
-        </div>
-
-       <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
-  <p className="text-center md:text-left">
-    &copy; 2023 De-Verge Hub. All rights reserved.
-  </p>
-
-  <div className="flex justify-center gap-8 md:justify-end">
-    <a href="#" className="transition hover:text-emerald-400">
-      Privacy Policy
-    </a>
-    <a href="#" className="transition hover:text-emerald-400">
-      Terms of Service
-    </a>
-  </div>
-</div>
-      </footer>
+           <SiteFooter />
     </main>
   );
 }
@@ -571,3 +456,5 @@ function SignalIcon() {
 
 
 export default AboutPage;
+
+

@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import { SiteNavbar } from "@/components/site-navbar";
+import { SiteFooter } from "@/components/site-footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -722,6 +723,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <SiteFooter />
     </main>
   );
 }

@@ -4,8 +4,8 @@ import type { ReactNode } from "react";
 import { Montserrat } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { SiteNavbar } from "@/components/site-navbar";
+import { SiteFooter } from "@/components/site-footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -177,31 +177,6 @@ const faqs = [
   { question: "Do I need a big budget?" },
 ];
 
-const companyLinks = ["About Us", "Service", "Blog", "Career", "CRS"];
-const supportLinks = ["Contact", "FAQs"];
-const footerLinkMap: Record<string, string> = {
-  "About Us": "/about",
-  Service: "/service",
-  Blog: "/blog",
-  Contact: "/contact",
-};
-
-function BrandMark() {
-  return (
-    <div className="flex items-center">
-      <Image
-        src="/images/brandmark.png"
-        alt="De-Verge Hub Logo"
-        width={140}
-        height={40}
-       
-        className="object-contain h-auto w-auto" 
-        priority // Good practice for logos in the header (LCP)
-      />
-    </div>
-  );
-}
-
 function SectionTitle({
   children,
   centered = false,
@@ -233,11 +208,17 @@ function PrimaryButton({ children }: { children: ReactNode }) {
   );
 }
 
-function SecondaryButton({ children }: { children: ReactNode }) {
+function SecondaryButton({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <a
       href="#pricing"
-      className="inline-flex items-center justify-center rounded-full border border-emerald-500/50 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10"
+      className={`inline-flex items-center justify-center rounded-full border border-emerald-500/50 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10 ${className}`}
     >
       {children}
     </a>
@@ -251,13 +232,13 @@ export default function ServicePage() {
         <div className="relative mx-auto max-w-7xl px-6 pt-2 md:px-10 lg:px-12">
           <SiteNavbar />
 
-          <div className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+          <div className="grid items-center sm:items-start gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
             <div className="max-w-3xl">
-              <h1 className="text-5xl font-medium leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
+              <h1 className="text-5xl font-lg leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-[5rem]">
                 Our Service
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-[1.9rem] md:leading-[1.22]">
+              <p className="mt-6 max-w- 2xl text-sm leading-8 text-white/78 md:text-[1.9rem] md:leading-[1.22]">
                 From concept to launch, we&apos;re dedicated to turning your vision into
                 a digital reality. Discover our core services and how we ensure the
                 success of every project
@@ -268,8 +249,9 @@ export default function ServicePage() {
                   Schedule A Meeting
                   <ArrowIcon />
                 </PrimaryButton>
-                <SecondaryButton>See Pricing</SecondaryButton>
-              </div>
+<SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
+                  See Pricing
+                </SecondaryButton>{" "}              </div>
             </div>
 
             <div className="mx-auto grid w-full max-w-[22rem] gap-6 sm:max-w-[26rem] sm:grid-cols-2">
@@ -451,96 +433,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      <footer className="bg-[#0a0f18] px-6 pb-8 pt-16 text-white md:px-10 lg:px-12">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.4fr_0.8fr_0.7fr_1fr]">
-          <div>
-            <BrandMark />
-            <p className="mt-5 max-w-sm text-lg leading-8 text-white/72">
-              Empowering your digital transformation with top freelance talent
-              worldwide on our secure, cost-effective platform.
-            </p>
-
-             <div className="mt-6 flex gap-4">
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaFacebook size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaInstagram size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaTwitter size={26} className="text-white" />
-  </a>
-
-  <a href="#" className="grid h-12 w-12 place-items-center transition hover:opacity-80">
-    <FaLinkedinIn size={26} className="text-white" />
-  </a>
-</div>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-semibold">Company</h3>
-            <ul className="mt-5 space-y-3 text-xl text-white/85">
-              {companyLinks.map((link) => (
-                <li key={link}>
-                  <Link href={footerLinkMap[link] ?? "#"} className="transition hover:text-emerald-400">
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-3xl font-semibold">Support</h3>
-            <ul className="mt-5 space-y-3 text-xl text-white/85">
-              {supportLinks.map((link) => (
-                <li key={link}>
-                  <Link href={footerLinkMap[link] ?? "#"} className="transition hover:text-emerald-400">
-                    {link}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div id="footer-newsletter">
-            <h3 className="text-3xl font-semibold">Newsletter</h3>
-            <p className="mt-5 text-lg leading-7 text-white/72">
-              Join our newsletter to stay up to date on features and releases.
-            </p>
-            <form className="mt-5 space-y-3">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="w-full rounded-md border border-white/25 bg-transparent px-4 py-3 text-base text-white outline-none placeholder:text-white/45 focus:border-emerald-500"
-              />
-              <button
-                type="submit"
-                className="w-full rounded-md bg-emerald-600 px-4 py-3 text-left text-base font-semibold text-white transition hover:bg-emerald-500"
-              >
-                Subscribed
-              </button>
-            </form>
-          </div>
-        </div>
-
-       <div className="mx-auto mt-10 flex max-w-6xl flex-col-reverse gap-4 border-t border-white/20 pt-5 text-xl text-white/82 md:flex-row md:items-center md:justify-between">
-  <p className="text-center md:text-left">
-    &copy; 2023 De-Verge Hub. All rights reserved.
-  </p>
-
-  <div className="flex justify-center gap-8 md:justify-end">
-    <a href="#" className="transition hover:text-emerald-400">
-      Privacy Policy
-    </a>
-    <a href="#" className="transition hover:text-emerald-400">
-      Terms of Service
-    </a>
-  </div>
-</div>
-      </footer>
+            <SiteFooter />
     </main>
   );
 }
@@ -645,3 +538,5 @@ function ScaleIcon() {
     </svg>
   );
 }
+
+
