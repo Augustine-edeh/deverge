@@ -184,7 +184,7 @@ function AboutPage() {
             <div className="mx-auto w-full max-w-[24rem] rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_20px_70px_rgba(0,0,0,0.24)] backdrop-blur-sm">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-emerald-500/10 bg-[#13253d]/90 p-4 ">
-                  <p className="text-[2.65rem] uppercase tracking-[0.35em] text-emerald-300/80">
+                  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-emerald-300/80">
                     Network
                   </p>
                   <h3 className="mt-4 text-[1.85rem] font-medium text-white">
