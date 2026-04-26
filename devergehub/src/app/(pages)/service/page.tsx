@@ -116,7 +116,8 @@ const pricingTiers = [
       "border-white/20 bg-[#0b1318] text-white shadow-[0_24px_60px_rgba(0,0,0,0.2)]",
     accent: "text-white",
     iconBox: "bg-white/10 text-white",
-    button: "border border-emerald-500/60 bg-transparent text-emerald-300 hover:bg-emerald-500/10",
+    button:
+      "border border-emerald-500/60 bg-transparent text-emerald-300 hover:bg-emerald-500/10",
     bonus: "bg-white/5 text-white/80",
     features: [
       "Full custom website or web application",
@@ -227,7 +228,9 @@ function SecondaryButton({
 
 export default function ServicePage() {
   return (
-    <main className={`${montserrat.className} min-h-screen bg-[#071115] text-white`}>
+    <main
+      className={`${montserrat.className} min-h-screen bg-[#071115] text-white`}
+    >
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.14),transparent_28%),linear-gradient(180deg,#0b1718_0%,#071115_100%)]">
         <div className="relative mx-auto max-w-7xl px-6 pt-2 md:px-10 lg:px-12">
           <SiteNavbar />
@@ -239,9 +242,9 @@ export default function ServicePage() {
               </h1>
 
               <p className="mt-6 max-w- 2xl text-sm leading-8 text-white/78 md:text-[1.9rem] md:leading-[1.22]">
-                From concept to launch, we&apos;re dedicated to turning your vision into
-                a digital reality. Discover our core services and how we ensure the
-                success of every project
+                From concept to launch, we&apos;re dedicated to turning your
+                vision into a digital reality. Discover our core services and
+                how we ensure the success of every project
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
@@ -249,9 +252,10 @@ export default function ServicePage() {
                   Schedule A Meeting
                   <ArrowIcon />
                 </PrimaryButton>
-<SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
+                <SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
                   See Pricing
-                </SecondaryButton>{" "}              </div>
+                </SecondaryButton>{" "}
+              </div>
             </div>
 
             <div className="mx-auto grid w-full max-w-[22rem] gap-6 sm:max-w-[26rem] sm:grid-cols-2">
@@ -265,32 +269,34 @@ export default function ServicePage() {
                 <p className="mt-2 text-sm leading-6 text-white/62">
                   From prototype to scaling,
                   <br />
-                  every layer is designed for startups, SaaS and digital ventures.
+                  every layer is designed for startups, SaaS and digital
+                  ventures.
                 </p>
               </div>
 
               <div className="rounded-[1.55rem] border border-fuchsia-500/60 bg-[#16101e] p-5 shadow-[0_20px_40px_rgba(0,0,0,0.16)] sm:translate-y-24">
-  
-  <p className="text-[0.65rem] uppercase tracking-[0.35em] text-fuchsia-300">
-    Growth Layer
-  </p>
+                <p className="text-[0.65rem] uppercase tracking-[0.35em] text-fuchsia-300">
+                  Growth Layer
+                </p>
 
-  <h3 className="mt-3 text-[1.9rem] font-semibold leading-tight text-white">
-    Data + Brand
-  </h3>
+                <h3 className="mt-3 text-[1.9rem] font-semibold leading-tight text-white">
+                  Data + Brand
+                </h3>
 
-  <p className="mt-3 text-sm leading-6 text-white/70">
-    Insight-driven decisions, memorable identity systems
-    and campaigns built to convert.
-  </p>
-
-</div>
+                <p className="mt-3 text-sm leading-6 text-white/70">
+                  Insight-driven decisions, memorable identity systems and
+                  campaigns built to convert.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="service" className="bg-[#071115] px-6 py-10 md:px-10 lg:px-12 lg:py-16">
+      <section
+        id="service"
+        className="bg-[#071115] px-6 py-10 md:px-10 lg:px-12 lg:py-16"
+      >
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionTitle centered>What We Offer</SectionTitle>
           <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold leading-tight text-white md:text-[3rem]">
@@ -304,7 +310,9 @@ export default function ServicePage() {
                 key={service.title}
                 className="rounded-[1.65rem] border border-white/30 bg-[#091317] px-6 py-6 shadow-[0_16px_40px_rgba(0,0,0,0.16)]"
               >
-                <div className={`inline-flex rounded-xl p-3 text-white ${service.color}`}>
+                <div
+                  className={`inline-flex rounded-xl p-3 text-white ${service.color}`}
+                >
                   {service.icon}
                 </div>
                 <h3 className="mt-5 text-[1.7rem] font-semibold text-white">
@@ -321,10 +329,15 @@ export default function ServicePage() {
         </div>
       </section>
 
-      <section id="pricing" className="bg-[#071115] px-6 py-14 md:px-10 lg:px-12 lg:py-20">
+      <section
+        id="pricing"
+        className="bg-[#071115] px-6 py-14 md:px-10 lg:px-12 lg:py-20"
+      >
         <div className="mx-auto w-full max-w-[1346px]">
           <div className="text-center">
-            <p className="text-xl font-semibold text-emerald-400">Deployment Options</p>
+            <p className="text-xl font-semibold text-emerald-400">
+              Deployment Options
+            </p>
             <h2 className="mt-2 text-4xl font-extrabold text-white md:text-[3rem]">
               Investment Tiers.
             </h2>
@@ -339,15 +352,23 @@ export default function ServicePage() {
             {pricingTiers.map((tier, index) => (
               <article
                 key={tier.title}
-                className={`rounded-[1.2rem] border p-5 ${tier.theme} ${
-                  index === 1 ? "lg:translate-y-5" : ""
+                className={`h-full flex flex-col rounded-[1.2rem] border p-5 ${tier.theme} ${
+                  index === 1 ? "lg:translate-y -5" : ""
                 }`}
               >
                 <div className={`inline-flex rounded-lg p-3 ${tier.iconBox}`}>
-                  {index === 0 ? <RocketIcon /> : index === 1 ? <DocumentChartIcon /> : <ScaleIcon />}
+                  {index === 0 ? (
+                    <RocketIcon />
+                  ) : index === 1 ? (
+                    <DocumentChartIcon />
+                  ) : (
+                    <ScaleIcon />
+                  )}
                 </div>
 
-                <h3 className="mt-4 text-[1.9rem] font-semibold">{tier.title}</h3>
+                <h3 className="mt-4 text-[1.9rem] font-semibold">
+                  {tier.title}
+                </h3>
                 <p className="mt-2 text-sm leading-6 opacity-80">
                   {index === 0 &&
                     "For solopreneurs & small businesses ready to show up online professionally."}
@@ -360,7 +381,9 @@ export default function ServicePage() {
                 <div className="mt-5">
                   <p className="text-[2rem] font-extrabold leading-none">
                     <span className={tier.accent}>{tier.price}</span>{" "}
-                    <span className="text-sm font-medium opacity-60">{tier.suffix}</span>
+                    <span className="text-sm font-medium opacity-60">
+                      {tier.suffix}
+                    </span>
                   </p>
                 </div>
 
@@ -378,8 +401,12 @@ export default function ServicePage() {
                   </ul>
                 </div>
 
-                <div className={`mt-5 rounded-2xl p-4 text-sm leading-6 ${tier.bonus}`}>
-                  <p className="font-semibold uppercase tracking-[0.14em]">Bonus Stack</p>
+                <div
+                  className={`mt-5 rounded-2xl p-4 text-sm leading-6 ${tier.bonus}`}
+                >
+                  <p className="font-semibold uppercase tracking-[0.14em]">
+                    Bonus Stack
+                  </p>
                   <ul className="mt-2 space-y-1.5">
                     {tier.bonusItems.map((item) => (
                       <li key={item}>• {item}</li>
@@ -387,13 +414,17 @@ export default function ServicePage() {
                   </ul>
                 </div>
 
-                <p className="mt-4 text-xs opacity-65">{tier.note}</p>
+                <p className="mt-4 mb-10 text-xs opacity-65">{tier.note}</p>
 
                 <button
                   type="button"
-                  className={`mt-5 w-full rounded-xl px-4 py-3 text-sm font-semibold transition ${tier.button}`}
+                  className={`mt-auto  w-full rounded-xl px-4 py-3 text-sm font-semibold transition ${tier.button}`}
                 >
-                  {index === 0 ? "Choose Tier 1" : index === 1 ? "Choose Tier 2" : "Choose Tier 3"}
+                  {index === 0
+                    ? "Choose Tier 1"
+                    : index === 1
+                      ? "Choose Tier 2"
+                      : "Choose Tier 3"}
                 </button>
               </article>
             ))}
@@ -419,8 +450,12 @@ export default function ServicePage() {
                     index === 0 ? "bg-white/10" : ""
                   }`}
                 >
-                  <h3 className="text-base font-medium text-white">{faq.question}</h3>
-                  <span className="text-2xl text-white/70">{index === 0 ? "−" : "+"}</span>
+                  <h3 className="text-base font-medium text-white">
+                    {faq.question}
+                  </h3>
+                  <span className="text-2xl text-white/70">
+                    {index === 0 ? "−" : "+"}
+                  </span>
                 </div>
                 {faq.answer ? (
                   <div className="px-4 pb-5 text-sm leading-7 text-white/72">
@@ -433,14 +468,20 @@ export default function ServicePage() {
         </div>
       </section>
 
-            <SiteFooter />
+      <SiteFooter />
     </main>
   );
 }
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M5 12h14" />
       <path d="m13 5 7 7-7 7" />
     </svg>
@@ -449,7 +490,13 @@ function ArrowIcon() {
 
 function CodeIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="5" y="4" width="14" height="16" rx="2" />
       <path d="M9 9h6" />
       <path d="M9 13h4" />
@@ -459,7 +506,13 @@ function CodeIcon() {
 
 function ChartIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M7 17V9" />
       <path d="M12 17V5" />
       <path d="M17 17v-4" />
@@ -470,7 +523,13 @@ function ChartIcon() {
 
 function HeadsetIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M4 13a8 8 0 1 1 16 0" />
       <rect x="4" y="12" width="4" height="6" rx="2" />
       <rect x="16" y="12" width="4" height="6" rx="2" />
@@ -480,7 +539,13 @@ function HeadsetIcon() {
 
 function ChatIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M6 7h12a2 2 0 0 1 2 2v7l-4-2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z" />
       <path d="M8 11h6" />
     </svg>
@@ -489,7 +554,13 @@ function ChatIcon() {
 
 function BadgeIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="m12 3 7 4v10l-7 4-7-4V7l7-4Z" />
       <path d="m9.5 12 1.5 1.5 3.5-3.5" />
     </svg>
@@ -498,7 +569,13 @@ function BadgeIcon() {
 
 function LayoutIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3" y="4" width="18" height="6" rx="2" />
       <rect x="3" y="14" width="8" height="6" rx="2" />
       <rect x="13" y="14" width="8" height="6" rx="2" />
@@ -508,7 +585,13 @@ function LayoutIcon() {
 
 function RocketIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M5 19c2-5 6-9 11-11 1.5 3.5.5 8.5-3 12-3 .5-6 0-8-1Z" />
       <path d="m9 15-4 4" />
       <path d="M14 10h.01" />
@@ -518,7 +601,13 @@ function RocketIcon() {
 
 function DocumentChartIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M8 3h8l3 3v15H5V3h3Z" />
       <path d="M8 13h2" />
       <path d="M8 17h8" />
@@ -529,7 +618,13 @@ function DocumentChartIcon() {
 
 function ScaleIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M12 4v16" />
       <path d="M7 7h10" />
       <path d="m7 7-3 5h6l-3-5Z" />
@@ -538,5 +633,3 @@ function ScaleIcon() {
     </svg>
   );
 }
-
-
