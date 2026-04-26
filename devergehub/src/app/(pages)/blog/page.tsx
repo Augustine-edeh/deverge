@@ -7,7 +7,6 @@ import Link from "next/link";
 import { SiteNavbar } from "@/components/site-navbar";
 import { SiteFooter } from "@/components/site-footer";
 
-
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -29,7 +28,7 @@ const posts = [
     title: "The Future of Web Development: What to Expect in 2025",
     excerpt:
       "Discover the emerging trends that will shape web development in the coming year, from AI integration to new frameworks and tools that promise to ....",
-          author: "CodewithHarry",
+    author: "CodewithHarry",
     category: "Web Dev",
     image: "/images/blog-img1.png",
     date: "March 15, 2024",
@@ -94,7 +93,6 @@ const posts = [
 ];
 
 export default function BlogPage() {
-  
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -114,12 +112,14 @@ export default function BlogPage() {
   }, [activeCategory, query]);
 
   return (
-    <main className={`${montserrat.className} min-h-screen bg-[#081216] text-white`}>
+    <main
+      className={`${montserrat.className} min-h-screen bg-[#081216] text-white`}
+    >
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#10382f_0%,#081216_36%,#081216_100%)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_28%,rgba(16,185,129,0.08),transparent_20%),radial-gradient(circle_at_25%_18%,rgba(16,185,129,0.08),transparent_22%)]" />
 
         <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-6 md:px-10 lg:px-12 lg:pb-20">
-         <SiteNavbar />
+          <SiteNavbar />
 
           <div className="grid items-center gap-12 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
             <div className="max-w-3xl">
@@ -136,7 +136,7 @@ export default function BlogPage() {
                 tomorrow.
               </h1>
 
-              <p className="mt-6 max-w-2 xl text-lg leading-8 text-white/72 md:text-[1srem] md:leading-[1.45]">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72 md:text-[1srem] md:leading-[1.45]">
                 Discover our latest insights, trends, and tips on digital
                 marketing and web development.
               </p>
@@ -277,14 +277,20 @@ export default function BlogPage() {
         </div>
       </section>
 
-            <SiteFooter />
+      <SiteFooter />
     </main>
   );
 }
 
 function ArrowIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M5 12h14" />
       <path d="m13 5 7 7-7 7" />
     </svg>
@@ -293,7 +299,13 @@ function ArrowIcon() {
 
 function SearchIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <circle cx="11" cy="11" r="6" />
       <path d="m20 20-4.2-4.2" />
     </svg>
@@ -302,7 +314,13 @@ function SearchIcon() {
 
 function CalendarIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3" y="5" width="18" height="16" rx="2" />
       <path d="M8 3v4" />
       <path d="M16 3v4" />
@@ -313,7 +331,13 @@ function CalendarIcon() {
 
 function ClockIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <circle cx="12" cy="12" r="8.5" />
       <path d="M12 7.5v5l3 1.8" />
     </svg>
@@ -322,7 +346,13 @@ function ClockIcon() {
 
 function EyeIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 text-emerald-500" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 text-emerald-500"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
       <circle cx="12" cy="12" r="2.7" />
     </svg>
@@ -339,7 +369,13 @@ function FacebookIcon() {
 
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
@@ -349,7 +385,13 @@ function InstagramIcon() {
 
 function XIcon() {
   return (
-    <svg viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-9 w-9"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
       <path d="M4 4 20 20" />
       <path d="M20 4 4 20" />
     </svg>
@@ -363,5 +405,3 @@ function LinkedInIcon() {
     </svg>
   );
 }
-
-
