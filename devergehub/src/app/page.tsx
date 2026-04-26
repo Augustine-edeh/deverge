@@ -191,7 +191,7 @@ function SecondaryButton({ children }: { children: ReactNode }) {
   return (
     <Link
       href="/portfolio"
-      className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 px-7 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10"
+      className="inline-flex items-center justify-center rounded-full border border-emerald-500/60 px-10 py-4 text-sm font-semibold text-white transition hover:bg-emerald-500/10"
     >
       {children}
     </Link>
@@ -222,11 +222,11 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
         </div>
 
-        <div className="relative mx-auto flex min-h-[56rem] w-full max-w- 6xl flex-col px-6 pb-16 md:px-10 lg:px-12">
+        <div className="relative mx-auto flex min-h-[80vh] w-full max-w-6xl flex-col px-6 pb-10 md:px-10 md:pb-12 lg:px-12">
           <SiteNavbar />
 
-          <div className="relative z-10 flex flex-1 items- center py-22 md:py-24">
-            <div className="max-w- 4xl pl-0 md:pl-10">
+          <div className="relative z-10 flex flex-1 items-center py-14 md:py-16">
+            <div className="max-w-4xl pl-0 md:pl-10">
               <div className="max-w-5xl font-bold text-[42px] leading-[1] tracking-[0] text-white sm:text-[64px] lg:text-[70px] space-y-2">
           <p>Cutting-Edge Digital</p>
           <p>
@@ -242,12 +242,13 @@ export default function HomePage() {
                 for startups, enterprises, and growing businesses.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-10">
                 <PrimaryButton>
                   Schedule A Meeting <ArrowIcon />
                 </PrimaryButton>
-                <SecondaryButton>View Our Work</SecondaryButton>
-              </div>
+<SecondaryButton className="bg-[linear-gradient(122.98deg,rgba(1,8,5,0.8)_35.64%,rgba(30,98,64,0.8)_129.95%)] text-white">
+  View Our Work
+</SecondaryButton>              </div>
             </div>
           </div>
         </div>
@@ -285,7 +286,7 @@ export default function HomePage() {
 
           <div>
             <SectionEyebrow align="left">Who We Are</SectionEyebrow>
-            <h2 className="max-w-xl text-2xl font-bold leading-tight text-white md:text-[3.2rem]">
+            <h2 className="max-w-xl text-2xl font-bold leading-tight text-white">
               Our story started with a
               <br />
               dedicated team of{" "}
@@ -293,23 +294,23 @@ export default function HomePage() {
               <br />
               <span className="text-emerald-500">innovators.</span>
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/78 md:text-lg">
+            <p className="mt-2 max-w-xl text-base leading-7 text-white/78 md:text-lg">
               We take pride in our dedication to excellence, innovative
               solutions, and steadfast commitment to client satisfaction.
             </p>
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/78 md:text-lg">
+            <p className="mt-2 max-w-xl text-base leading-7 text-white/78 md:text-lg">
               Our expertise has empowered countless businesses to enhance their
               digital presence and achieve remarkable growth.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-5">
+            <div className="mt-3 flex flex-wrap gap-5">
               {[
                 ["5+ Years", "Industry Experience"],
                 ["15+ Experts", "Dedicated Professionals"],
               ].map(([title, subtitle]) => (
                 <div
                   key={title}
-                  className="rounded-lg bg-[#3a4551] px-6 py-4 shadow-[0_12px_24px_rgba(0,0,0,0.16)]"
+                  className="rounded-lg bg-[#3a4551] px-6 py-2 shadow-[0_12px_24px_rgba(0,0,0,0.16)]"
                 >
                   <div className="text-[1.85rem] font-semibold text-emerald-400">
                     {title}
@@ -334,7 +335,7 @@ export default function HomePage() {
       >
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionEyebrow>What We Offer</SectionEyebrow>
-          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
+          <h2 className="mx-auto max-w-4xl text-center text-2xl font-bold leading-tight text-white md:text-[3rem]">
             What sets us apart? We deliver
             <br />
             holistic solutions by seamlessly
@@ -345,12 +346,13 @@ export default function HomePage() {
             <span className="text-emerald-500">technology.</span>
           </h2>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service) => (
               <article
                 key={service.title}
                 className="rounded-[0.9rem] bg-[#237545] px-6 py-8 shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition duration-200 hover:-translate-y-1"
               >
+                
                 <div className="mb-6 inline-flex rounded-lg bg-white/12 p-3 text-white">
                   {service.icon}
                 </div>
@@ -368,13 +370,13 @@ export default function HomePage() {
 
       <section
         id="portfolio"
-        className="bg-[#081216] px-6 py-24 md:px-10 lg:px-12"
+        className="bg-[#081216] px-6 py-1 md:px-10 lg:px-12"
       >
         <div className="mx-auto w-full max-w-[1346px]">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <SectionEyebrow align="left">What We&apos;ve Done</SectionEyebrow>
-              <h2 className="max-w-4xl text-4xl font-bold leading-tight text-white md:text-[3.8rem]">
+              <h2 className="max-w-4xl text-xl font-bold leading-tight text-white md:text-[3rem]">
                 Explore some of our
                 <br />
                 <span className="text-emerald-500">hands-on projects,</span>
@@ -432,7 +434,7 @@ export default function HomePage() {
       <section id="blog" className="bg-[#0a1018] px-6 py-24 md:px-10 lg:px-12">
         <div className="mx-auto w-full max-w-[1346px]">
           <SectionEyebrow>Testimonial</SectionEyebrow>
-          <h2 className="mx-auto max-w-4xl text-center text-3xl font-bold leading-tight text-white md:text-[3.2rem]">
+          <h2 className="mx-auto max-w-4xl text-center text-xl font-bold leading-tight text-white md:text-[3rem]">
             See how our users have
             <br />
             significantly reduced their{" "}

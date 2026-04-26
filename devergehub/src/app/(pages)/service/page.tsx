@@ -248,7 +248,7 @@ export default function ServicePage() {
   return (
     <main className={`${montserrat.className} min-h-screen bg-[#071115] text-white`}>
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.14),transparent_28%),linear-gradient(180deg,#0b1718_0%,#071115_100%)]">
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-10 lg:px-12">
+        <div className="relative mx-auto max-w-7xl px-6 pt-2 md:px-10 lg:px-12">
           <SiteNavbar />
 
           <div className="grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">

@@ -118,7 +118,7 @@ function ContactPage() {
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.18),transparent_30%),radial-gradient(circle_at_90%_12%,rgba(255,255,255,0.08),transparent_12%),linear-gradient(180deg,#0a1718_0%,#071115_100%)]">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,17,21,0.1)_0%,rgba(7,17,21,0.04)_35%,rgba(7,17,21,0.14)_100%)] opacity-60" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-10 lg:px-12">
+        <div className="relative mx-auto max-w-7xl px-6 pt-2 md:px-10 lg:px-12">
            <SiteNavbar />
 
           <div className="grid items-center gap-14 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">

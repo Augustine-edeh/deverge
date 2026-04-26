@@ -176,11 +176,11 @@ function AboutPage() {
           <div className="absolute left-0 top-0 h-full w-full bg-[linear-gradient(90deg,rgba(7,17,21,0.2)_0%,rgba(7,17,21,0.05)_35%,rgba(7,17,21,0.18)_100%)]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-6 md:px-10 lg:px-12">
+        <div className="relative mx-auto max-w-7xl px-6 pt-2 md:px-10 lg:px-12">
          <SiteNavbar />
 
-          <div className="grid items-center gap-12 py-2 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
-           <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
+<div className="grid items-center gap-12 py-6 lg:grid-cols-[1.1fr_0.9fr] lg:py-12">
+             <div className="max-w-3xl text-center lg:text-left mx-auto lg:mx-0">
   <h1 className="text-5xl font-extrabold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[5.4rem]">
     About
     <br />
