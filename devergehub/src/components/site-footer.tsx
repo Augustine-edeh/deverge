@@ -119,21 +119,37 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-7xl flex-col-reverse gap-3 border-t border-white/10 pt-5 text-lg text-white/70 md:flex-row md:items-center md:justify-between">
-  <p className="text-white md:text-left">
-    &copy; 2023 De-Verge Hub. All rights reserved.
-  </p>
+      {/* Desktop view (copywright section)  */}
+      <div className="hidden md:flex justify-between max-w-7xl gap-3 mx-auto mt-10 border-t border-white pt-5 text-lg text-white/70 md:flex-row md:items-center md:justify-between">
+        <p className="text-white md:text-left">
+          &copy; 2023 De-Verge Hub. All rights reserved.
+        </p>
 
-  {/* Changed flex to flex-col for stacking, and md:flex-row for desktop side-by-side */}
-  <div className="flex flex-col gap-4 text-white md:flex-row md:justify-end md:gap-6">
-    <a href="#" className="transition hover:text-emerald-400">
-      Privacy Policy
-    </a>
-    <a href="#" className="transition hover:text-emerald-400">
-      Terms of Service
-    </a>
-  </div>
-</div>
+        {/* <div className="flex flex-col gap-4 text-white md:flex-row md:justify-end md:gap-6"> */}
+        <a href="#" className="transition hover:text-emerald-400">
+          Privacy Policy
+        </a>
+        <a href="#" className="transition hover:text-emerald-400">
+          Terms of Service
+        </a>
+        {/* </div> */}
+      </div>
+
+      {/* Mobile view (copywright section)  */}
+      <div className="flex md:hidden max-w-7xl flex-col-reverse gap-3 mx-auto mt-10 border-t border-white pt-5 text-lg text-white/70">
+        <p className="text-white md:text-left">
+          &copy; 2023 De-Verge Hub. All rights reserved.
+        </p>
+
+        <div className="flex flex-col gap-4 text-white md:flex-row md:justify-end md:gap-6">
+          <a href="#" className="transition hover:text-emerald-400">
+            Privacy Policy
+          </a>
+          <a href="#" className="transition hover:text-emerald-400">
+            Terms of Service
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }
