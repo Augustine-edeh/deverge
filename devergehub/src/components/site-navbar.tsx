@@ -1,5 +1,6 @@
 "use client";
 
+import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -77,11 +78,12 @@ export function SiteNavbar({ theme = "dark" }: SiteNavbarProps) {
             <button
               type="button"
               onClick={() => setMenuOpen((prev) => !prev)}
-              className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
+              className={clsx(
+                "inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden",
                 isDark
                   ? "border-white/10 bg-white/5 text-white"
-                  : "border-slate-200 bg-white text-slate-900"
-              }`}
+                  : "border-slate-200 bg-white text-slate-900",
+              )}
             >
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
