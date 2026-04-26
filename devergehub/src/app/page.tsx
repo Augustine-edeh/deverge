@@ -215,10 +215,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(16,185,129,0.12),transparent_26%),linear-gradient(90deg,rgba(7,17,21,0.34),rgba(7,17,21,0.18),rgba(7,17,21,0.42))]" />
         </div>
 
-        <div className="relative w-full min-h-dvh flex flex-col px-2 sm:px-6 md:px-10 lg:px-18.5 pb-10 md:pb-12">
+        <div className="relative w-full min-h-1/2 md:min-h-dvh flex flex-col px-2 sm:px-6 md:px-10 lg:px-18.5 pb-10 md:pb-12">
           <SiteNavbar />
 
-          <div className="relative z-10 flex-1 flex items-center py-14 md:py-16">
+          <div className="relative z-10 flex-1 flex md:items-center py-2 md:py-14 md:py-16">
             <div className="w-full px-3 sm:px-10 md:px-18.5">
               {/* Hero Headline texts */}
               <div className="max-w-5xl font-bold text-4xl sm:text-6xl lg:text-7xl md:leading-16 tracking-[0] text-white">
@@ -251,13 +251,13 @@ export default function HomePage() {
       </section>
 
       <section className="bg-[#081116] px-6 py-10 md:px-10 lg:px-12">
-        <div className="mx-auto grid max-w-5xl gap-8 text-center md:grid-cols-3">
+        <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8 text-center">
           {stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-5xl font-extrabold text-emerald-500 md:text-[3.6rem]">
+            <div key={stat.label} className="grid place-content-center">
+              <div className="text-3xl md:text-5xl font-extrabold text-emerald-500 md:text-[3.6rem]">
                 {stat.value}
               </div>
-              <p className="mt-1 text-2xl font-medium text-white/92">
+              <p className="mt-1 text- [15px] md:text-2xl font-medium text-white/92 text-nowrap">
                 {stat.label}
               </p>
             </div>
